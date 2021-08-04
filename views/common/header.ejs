@@ -4,9 +4,9 @@
 </div>
 <nav class="category">
     <ul class="nav__links">
-        <li><a href="#">프로젝트</a></li>
-        <li><a href="#">스터디</a></li>
-        <li><a href="#">교내 프로그램</a></li>
+        <li><a href="/project">프로젝트</a></li>
+        <li><a href="/study">스터디</a></li>
+        <li><a href="/program">교내 프로그램</a></li>
     </ul>
     <div class="dropdown-content">
         <ul class="dropdown_category__project">
@@ -32,16 +32,7 @@
         </ul>
     </div>
     <div class="registration">
-        <% if(!isLogin) { %>
-            <span class="nav__registration"><a href="/login">로그인</a>/<a href="/registration">회원가입 </a></span>
-            <% } else { %>
-                <a href="#">
-                    <img src="images/icon_msg.png" alt="icon_msg">
-                </a>
-                <a href="/profile">
-                    <img src="images/icon_user.png" alt="icon_user">
-                </a>
-                <% } %>
+
 
     </div>
 </nav>

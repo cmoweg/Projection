@@ -1,121 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-    <link rel="stylesheet" href="/stylesheets/post_detail.css">
+<link rel="stylesheet" href="/stylesheets/post_detail.css">
+
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
 </head>
+
 <body>
-    <header>
+    <%- include("../common/header") %>
 
-    </header>
-    <nav>
-        <h1>
-            <a href="/project/my_write.html">전체</a>
-            <a href="/project/my_write 1.html" id="here">수업</a>
-            <a href="/project/my_write 2.html">관심</a>
-        </h1>
-    </nav>
 
-    <main>
-        <div>
-            <h1>제목</h1>
-            <p class="list">목록으로</p>
-        </div>
-        
-        
-        <div id=write>
-            <img src="/images/턱괸고앵.jpg" alt="" id="pic">
-            <p id="short" class="contents">
-                한줄설명 
-            </p>
-           <% if(class_info){ %>
-
-            <p id="class_info" class="contents">
-                학수번호 
-            </p>
-            <% } %>
-
-            <% if(subject){ %>
-
-            <p id="subject" class="contents">
-                분야
-            </p>
-            <% } %>
-
-            <p id="current_num" class="contents">
-                현재 팀원 수
-            </p>
-            <p id="num" class="contents">
-                모집 인원 
-            </p>
-            <p id="Period" class="contents">
-                모집 기간 
-            </p>
-            <% if(position){ %>
-
-            <p id="position" class="contents">
-                모집 포지션 
-            </p>
-            <% } %>
-
-            <p id="Activity_period" class="contents">
-                활동 기간: 시작일  / 마감일  <input type="checkbox" name="" id=""> 추후 결정
-            </p>
-            <p id="goal" class="contents">
-                목표 
-            </p>
-            <p id="file" class="contents">
-                파일 첨부 
-            </p>
-            <p id="description" class="contents">
-                상세 설명:
-                <br>
-                
-            </p>
-        </div>
-        <% if(isWriter){ %>
-        
-            <div id="profile">
-                리더 프로필 <br>
-                <img src="/images/턱괸고앵.jpg" alt="" id="icon"> 닉네임
-                <p>
-                    모집 기간 <br>
-                    ---------
-                </p>
-                <p>
-                    모집 현황 <br>
-                    ---------
-                </p>
-                <button class="blue">수정하기</button>
-                <button class="red">비공개</button>
+        <main>
+            <div>
+                <h1>제목</h1>
+                <p class="list">목록으로</p>
             </div>
-        <% } 
-        else { %>
-            <div id="profile">
-                리더 프로필 <br>
-                <img src="/images/턱괸고앵.jpg" alt="" id="icon"> 닉네임
-                <p>
-                    모집 기간 <br>
-                    ---------
-                </p>
-                <p>
-                    모집 현황 <br>
-                    ---------
-                </p>
-                <button class="blue">지원하기</button>
-            </div>
-            
-            <div id="team">
-                현재 팀원 <br>
-                <img src="/images/턱괸고앵.jpg" alt="" id="icon"> 닉네임 포지션 <br>
-                <img src="/images/턱괸고앵.jpg" alt="" id="icon"> 닉네임 포지션
-            </div>
-        <% } %>
 
-        
-    </main>
-    
+
+            <div id=write>
+                <img src="/images/턱괸고앵.jpg" alt="" id="pic">
+                <p id="short" class="contents">
+                    한줄설명
+                </p>
+                <% if(class_info){ %>
+
+                    <p id="class_info" class="contents">
+                        학수번호
+                    </p>
+                    <% } %>
+
+                        <% if(subject){ %>
+
+                            <p id="subject" class="contents">
+                                분야
+                            </p>
+                            <% } %>
+
+                                <p id="current_num" class="contents">
+                                    현재 팀원 수
+                                </p>
+                                <p id="num" class="contents">
+                                    모집 인원
+                                </p>
+                                <p id="Period" class="contents">
+                                    모집 기간
+                                </p>
+                                <% if(position){ %>
+
+                                    <p id="position" class="contents">
+                                        모집 포지션
+                                    </p>
+                                    <% } %>
+
+                                        <p id="Activity_period" class="contents">
+                                            활동 기간: 시작일 / 마감일 <input type="checkbox" name="" id=""> 추후 결정
+                                        </p>
+                                        <p id="goal" class="contents">
+                                            목표
+                                        </p>
+                                        <p id="file" class="contents">
+                                            파일 첨부
+                                        </p>
+                                        <p id="description" class="contents">
+                                            상세 설명:
+                                            <br>
+
+                                        </p>
+            </div>
+            <% if(isWriter){ %>
+
+                <div id="profile">
+                    리더 프로필 <br>
+                    <img src="/images/턱괸고앵.jpg" alt="" id="icon"> 닉네임
+                    <p>
+                        모집 기간 <br>
+                        ---------
+                    </p>
+                    <p>
+                        모집 현황 <br>
+                        ---------
+                    </p>
+                    <button class="blue">수정하기</button>
+                    <button class="red">비공개</button>
+                </div>
+                <% } else { %>
+                    <div id="profile">
+                        리더 프로필 <br>
+                        <img src="/images/턱괸고앵.jpg" alt="" id="icon"> 닉네임
+                        <p>
+                            모집 기간 <br>
+                            ---------
+                        </p>
+                        <p>
+                            모집 현황 <br>
+                            ---------
+                        </p>
+                        <button class="blue">지원하기</button>
+                    </div>
+
+                    <div id="team">
+                        현재 팀원 <br>
+                        <img src="/images/턱괸고앵.jpg" alt="" id="icon"> 닉네임 포지션 <br>
+                        <img src="/images/턱괸고앵.jpg" alt="" id="icon"> 닉네임 포지션
+                    </div>
+                    <% } %>
+
+
+        </main>
+
 
 </body>
+
 </html>

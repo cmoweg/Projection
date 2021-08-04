@@ -1,89 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-    <link rel="stylesheet" href="/stylesheets/post.css">
+<link rel="stylesheet" href="/stylesheets/post.css">
+
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
 </head>
+
 <body>
-    <header>
+    <%- include("../common/header") %>
 
-    </header>
-    <nav>
-        <h1>
-            <a href="/project/add.html">전체</a>
-            <a href="/project/add 1.html" id="here">수업</a>
-            <a href="/project/add 2.html">관심</a>
-        </h1>
-    </nav>
 
-    <main>
-        <h1>글 작성</h1>
-        <div class="box">
-            <p id="title" class="contents">
-                제목 <input type="text">
-            </p>
-            <p id="short" class="contents">
-                한줄설명 <input type="text">
-            </p>
-           <% if(class_info){ %>
-                <p id="class_info" class="contents">
-                    학수번호 <input type="text"> 분반 <input type="text">
+        <main>
+            <h1>글 작성</h1>
+            <div class="box">
+                <p id="title" class="contents">
+                    제목 <input type="text">
                 </p>
-            <% } %>
-            <% if(subject){ %>
-                <p id="subject" class="contents">
-                    분야 <input type="text">
+                <p id="short" class="contents">
+                    한줄설명 <input type="text">
                 </p>
-            <% } %>
-            <p id="current_num" class="contents">
-                현재 팀원 수 <input type="text">
-            </p>
-            <p id="num" class="contents">
-                모집 인원 <input type="text">
-            </p>
-            <p id="Period" class="contents">
-                모집 기간 <input type="date">
-            </p>
-            <% if(position){ %>
-                <p id="position" class="contents">
-                    모집 포지션 <input type="text">
-                </p>
-            <% } %>
-            <p id="Activity_period" class="contents">
-                활동 기간: 시작일 <input type="date"> / 마감일 <input type="date"> <input type="checkbox" name="" id=""> 추후 결정
-            </p>
-            <p id="goal" class="contents">
-                목표 <input type="text">
-            </p>
-            <p id="file" class="contents">
-                파일 첨부 <input type="file" name="" id="">
-            </p>
-            <p id="description" class="contents">
-                상세 설명:
-                <br>
-                <textarea name="" id="textbox" cols="50" rows="10" placeholder="상세 설명을 적어주세요."></textarea>
-            </p>
-            <p id="image" class="contents">
-                모집 공고 이미지 선택 <br>
-                <input type="file" name="" id="">
-            </p>
-        </div>
-        <button id="submit" class="show blue">작성완료</button>
-
-        <div class="background">
-            <div class="popup">
-                <p id="x" class="close">X</p>
-                <br>
-                <p id="notice">글 게시 후 모집 기간, 모집 현황을 제외한 삭제, 수정이 불가능합니다.</p>
-                <button id="btn" class="show post blue">게시</button>
-                <button id="btn" class="close cancel red">취소</button>
+                <% if(class_info){ %>
+                    <p id="class_info" class="contents">
+                        학수번호 <input type="text"> 분반 <input type="text">
+                    </p>
+                    <% } %>
+                        <% if(subject){ %>
+                            <p id="subject" class="contents">
+                                분야 <input type="text">
+                            </p>
+                            <% } %>
+                                <p id="current_num" class="contents">
+                                    현재 팀원 수 <input type="text">
+                                </p>
+                                <p id="num" class="contents">
+                                    모집 인원 <input type="text">
+                                </p>
+                                <p id="Period" class="contents">
+                                    모집 기간 <input type="date">
+                                </p>
+                                <% if(position){ %>
+                                    <p id="position" class="contents">
+                                        모집 포지션 <input type="text">
+                                    </p>
+                                    <% } %>
+                                        <p id="Activity_period" class="contents">
+                                            활동 기간: 시작일 <input type="date"> / 마감일 <input type="date"> <input
+                                                type="checkbox" name="" id=""> 추후 결정
+                                        </p>
+                                        <p id="goal" class="contents">
+                                            목표 <input type="text">
+                                        </p>
+                                        <p id="file" class="contents">
+                                            파일 첨부 <input type="file" name="" id="">
+                                        </p>
+                                        <p id="description" class="contents">
+                                            상세 설명:
+                                            <br>
+                                            <textarea name="" id="textbox" cols="50" rows="10"
+                                                placeholder="상세 설명을 적어주세요."></textarea>
+                                        </p>
+                                        <p id="image" class="contents">
+                                            모집 공고 이미지 선택 <br>
+                                            <input type="file" name="" id="">
+                                        </p>
             </div>
-        </div>
+            <button id="submit" class="show blue">작성완료</button>
 
-    </main>
-    
-    <script src="/javascripts/post.js"></script>
+            <div class="background">
+                <div class="popup">
+                    <p id="x" class="close">X</p>
+                    <br>
+                    <p id="notice">글 게시 후 모집 기간, 모집 현황을 제외한 삭제, 수정이 불가능합니다.</p>
+                    <button id="btn" class="show post blue">게시</button>
+                    <button id="btn" class="close cancel red">취소</button>
+                </div>
+            </div>
+
+        </main>
+
+        <script src="/javascripts/post.js"></script>
 
 </body>
+
 </html>

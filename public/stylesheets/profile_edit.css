@@ -15,12 +15,7 @@ body {
     height: 100%;
     margin: 0px;
 }
-header {
-    width: 100%;
-    height: 90px;
-    background: #000538;
-}
- 
+
 section div {
     position: absolute;
 }
