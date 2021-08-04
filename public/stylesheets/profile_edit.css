@@ -1,0 +1,197 @@
+* {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    background: #FFFFFF;
+}
+html {
+    width: 100%;
+    height: 100%;
+}
+body {
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+}
+header {
+    width: 100%;
+    height: 90px;
+    background: #000538;
+}
+ 
+section div {
+    position: absolute;
+}
+
+.info_font {
+    font-size: 25px;
+    line-height: 29px;
+    text-align: center;
+    letter-spacing: 0.3em;
+}
+.pf {
+    left: 259px;
+    top: 210px;
+
+    font-size: 40px;
+    line-height: 47px;
+}
+.pf_image {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    left: 273px;
+    top: 277px;
+}
+.camera_image {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 425px;
+    top: 277px;
+    border-radius: 100%;
+}
+.edit {
+    left: 327px;
+    top: 497px;
+
+    font-size: 20px;
+    line-height: 23px;
+    color: #716E6E;
+    text-decoration: none;
+}
+.info_name {
+    left: 641px;
+    top: 277px;
+}
+.info_sub {
+    left: 641px;
+    top: 338px;
+
+    letter-spacing: 1.5em;
+}
+.info_grade {
+    left: 641px;
+    top: 399px;
+
+    letter-spacing: 1.5em;
+}
+.info_pos {
+    left: 641px;
+    top: 460px;
+}
+.info_add {
+    left: 641px;
+    top: 521px;
+}
+
+hr {
+    position: absolute;
+    width: 1050px;
+    height: 0px;
+    left: 611px;
+    top: 590px;
+    border: 2px solid #000538;
+}
+.skills {
+    left: 641px;
+    top: 630px;
+
+    font-size: 30px;
+    line-height: 35px;
+    text-align: center;
+    letter-spacing: 0.2em;
+}
+.skill {
+    width: 80px;
+    height: 80px;
+    left: 641px;
+    top: 690px;
+
+    background: #000538;
+    border-radius: 20px;
+}
+.skill_font {
+    left: 654px;
+
+    font-size: 20px;
+    line-height: 80px;
+    text-align: center;
+    letter-spacing: 0.1em;
+
+    color: #FFFFFF;
+}
+
+.sk_font {
+    left: 641px;
+    font-size: 30px;
+    line-height: 35px;
+    text-align: center;
+    letter-spacing: 0.2em;
+    margin-bottom: 109px;
+}
+.sk_box {
+    width: 816px;
+    height: 40px;
+    left: 641px;
+
+    background: #FFFFFF;
+    border: 2px solid #000538;
+    box-sizing: border-box;
+}
+.sk_port {
+    top: 810px;
+}
+.box_port {
+    top: 860px;
+}
+.sk_team {
+    top: 919px;
+}
+.box_team {
+    top: 969px;
+}
+.sk_award {
+    top: 1028px;
+}
+.box_award {
+    top: 1078px;
+}
+.sk_lic {
+    top: 1137px;
+}
+.box_lic {
+    top: 1187px;
+}
+.sk_intro {
+    top: 1242px;
+}
+.box_intro {
+    height: 70px;
+    top: 1292px;
+}
+.sk_pro {
+    top: 1377px;
+}
+.box_pro {
+    top: 1427px;
+    display: block;
+}
+.state {
+    display: block;
+    float: right;
+    width: 78.57px;
+    height: 25px;
+
+    background: #5782F2;
+    border: 1px solid #5782F2;
+    border-radius: 100px;
+}
+.state_font {
+    font-size: 15px;
+    text-align: center;
+    line-height: 18px;
+    color: #FFFFFF;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>project</title>
+    <link rel="stylesheet" href="/stylesheets/project.css">
+
+</head>
+<body>
+    
+    <header></header>
+
+    <nav>
+        <p class="all"><a href="/project/all" class="all">전체</a></p>
+        <p class="class"><a href="/project/class" class="class">수업</a></p>
+        <p class="inter"><a href="/project/inter" class="inter">관심</a></p>
+        <p class="new">새로운 글 쓰기</p>
+    </nav>
+    <style>
+        .<%=form%>{
+            color: #F27357;
+        }
+    </style>
+
+    <% if(form == "all"){ %>
+        <div class="search2">
+            <img src="/images/search.png" class="s_img2">
+        </div>
+    <% } else if (form=="class" || form=="inter") { %>
+        <div class="search_box">
+            <div class="search_num"></div>
+            <div class="search_name"></div>
+            <div class="search_class"></div>
+            <div class="search">
+                <img src="/images/search.png" class="s_img">
+            </div>
+        </div>
+    <% } %>
+</body>
+</html>
