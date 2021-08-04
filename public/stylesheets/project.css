@@ -1,0 +1,149 @@
+* {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    background: #FFFFFF;
+}
+html {
+    width: 100%;
+    height: 100%;
+}
+body {
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+}
+header {
+    width: 100%;
+    height: 90px;
+    background: #000538;
+}
+nav {
+    position: absolute;
+    width: 100%;
+    height: 69.5px;
+    left: 0px;
+    top: 90px;
+
+    background: #000538;
+    border-top: 1.5px solid #424779;
+}
+nav p {
+    position: absolute;
+    height: 23px;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    background: #000538;
+}
+a {
+    text-decoration: none;
+    background: #000538;
+}
+.all {
+    left: 40px;
+    color: #FFFFFF;
+}
+
+.class {
+    left: 155px;
+    color: #FFFFFF;
+}
+
+.inter {
+    left: 270px;
+    color: #FFFFFF;
+}
+
+.new {
+    left: 1745px;
+    color: #FFFFFF;
+}
+
+.search2 {
+    position: absolute;
+    width: 540px;
+    height: 43px;
+    left: 690px;
+    top: 369px;
+
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 100px;
+}
+.s_img2 {
+    width: 25.71px;
+    height: 30px;
+    float: right;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.search_box {
+    position: absolute;
+    width: 880px;
+    height: 253px;
+    left: 520px;
+    top: 264px;
+
+    background: #FFFFFF;
+    border: 1px solid #000000;
+}
+
+.search_num {
+    position: absolute;
+    width: 355px;
+    height: 43px;
+    margin-left: 75px;
+    margin-top: 50px;
+
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+}
+
+.search_name {
+    position: absolute;
+    width: 160px;
+    height: 43px;
+    margin-left: 458px;
+    margin-top: 50px;
+
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+}
+
+.search_class {
+    position: absolute;
+    width: 160px;
+    height: 43px;
+    margin-left: 646px;
+    margin-top: 50px;
+
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+}
+
+.search {
+    position: absolute;
+    width: 540px;
+    height: 43px;
+    margin-left: 170px;
+    margin-top: 160px;
+
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 100px;
+}
+.s_img {
+    width: 25.71px;
+    height: 30px;
+    float: right;
+    margin-right: 10px;
+    margin-top: 5px;
+}
