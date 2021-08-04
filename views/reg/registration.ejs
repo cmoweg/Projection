@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel='stylesheet' href='/stylesheets/reset.css' />
+    <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/registration.css">
+
+</head>
+
+<body>
+    <%- include("../common/header") %>
+        <div class="content">
+            <a href="/"><img src="images/logo.png" class="logo__login" alt="logo"></a>
+            <h1 class="text_login">회원가입</h1>
+            <form action="" class="login">
+                <input type="text" placeholder="이메일" class="email">
+                <input type="text" placeholder="인증번호" class="validation_number">
+                <input type="text" placeholder="닉네임" class="nickname">
+
+                <input type="password" placeholder="비밀번호" class="password">
+                <input type="password" placeholder="비밀번호 재확인" class="password_confirm">
+
+                <button class="btn_registration">가입하기</button>
+            </form>
+        </div>
+
+</body>
+
+</html>

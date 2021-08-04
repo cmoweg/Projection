@@ -1,0 +1,53 @@
+.content{
+    /* https://poiemaweb.com/css3-centering */
+    width: 520px;
+    height: 640px;
+    margin: 100px auto 0px ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo__login{
+    width: 250px;
+    height: 120px;
+    /* background-color: white; */
+}
+
+.text_login{
+    font-size: 64px;
+}
+
+.login{
+    width: 100%;
+}
+
+.login > input, .btn_registration{
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.login > label{
+    width: 100%;
+    align-items: center;
+
+}
+
+.btn_registration{
+    background-color: #000538;
+    color: white;
+}
+
+.spliter{
+    width: 100%;
+    border: 1px solid #dddddd;
+    margin-bottom: 40px;
+}
+
+
+#stay_login{
+    width: 40px;
+    height: 40px;
+    margin-bottom: 20px;
+}

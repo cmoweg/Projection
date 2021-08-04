@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel='stylesheet' href='/stylesheets/reset.css' />
+  <link rel="stylesheet" href="/stylesheets/header.css">
+  <link rel="stylesheet" href="/stylesheets/index.css">
+
+</head>
+
+<body>
+  <%- include("../common/header") %>
+    <div class="content">
+
+      <div class="search__section">
+        <div class="search_bar">
+          <div class="serach__text">
+            여러분의 팀을 찾아드립니다
+          </div>
+          <input type="text">
+        </div>
+      </div>
+      <div class="recent_post__section">
+        <%- include("./recent_post", {post_intro}) %>
+
+      </div>
+    </div>
+
+
+
+</body>
+
+</html>

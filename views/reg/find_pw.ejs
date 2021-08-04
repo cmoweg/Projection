@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel='stylesheet' href='/stylesheets/reset.css' />
+    <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/find_pw.css">
+
+</head>
+
+<body>
+    <%- include("../common/header") %>
+        <div class="content">
+            <a href="/"><img src="images/logo.png" class="logo__login" alt="logo"></a>
+            <h1 class="text_login">P &middot; W 찾기</h1>
+            <form action="" class="login">
+                <input type="text" placeholder="이메일" class="email">
+                <input type="password" placeholder="임시 비밀번호" class="temp_password">
+
+                <button class="btn_login">로그인</button>
+            </form>
+        </div>
+
+</body>
+
+</html>
