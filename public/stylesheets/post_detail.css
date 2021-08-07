@@ -1,10 +1,10 @@
-body{
+#detail_body{
     margin:0;
     height: 100%;
     width: 100%;
 }
 
-main{
+#detail_main{
     margin-left: 10%;
 }
 
@@ -24,14 +24,7 @@ main{
     padding: 5px;
 }
 
-a{
-    text-decoration: none;
-    color:white;
-    padding: 5px;
-}
-#here{
-    color: cornflowerblue;
-}
+
 #profile{
     box-sizing: content-box;
     width: 250px;
@@ -68,10 +61,10 @@ a{
 #icon{
     border-radius: 70%;
     height: 60px;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-left:-10px;
 }
-button{
+#btn {
     width: 225px;
     padding: 10px;
     padding-top: 5px;

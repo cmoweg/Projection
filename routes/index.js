@@ -68,7 +68,7 @@ router.get('/program/:category', function (req, res, next) {
 });
 
 
-router.get('/post/:nav/:form', function (req, res, next) {
+router.get('/:nav/post/:form', function (req, res, next) {
   let nav = req.params.nav;
   let form = req.params.form;
   console.log(nav)
@@ -94,12 +94,12 @@ router.get('/post/:nav/:form', function (req, res, next) {
       class_info = false;
     }
   }
-  console.log(class_info, subject, position);
+
   res.render('post/post', { "class_info": class_info, "subject": subject, "position": position });
 })
 
 
-router.get('/post_detail/:nav/:form', function (req, res, next) {
+router.get('/:nav/post_detail/:form', function (req, res, next) {
   let nav = req.params.nav;
   let form = req.params.form;
   console.log(nav)
@@ -126,7 +126,7 @@ router.get('/post_detail/:nav/:form', function (req, res, next) {
       class_info = false;
     }
   }
-  console.log(class_info, subject, position);
+
   res.render('post/post_detail', { "class_info": class_info, "subject": subject, "position": position, "isWriter": false });
 })
 module.exports = router;
