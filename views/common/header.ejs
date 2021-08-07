@@ -1,41 +1,51 @@
-<div class="identity">
-    <a href="/"><img src="images/logo.png" alt="logo"></a>
-    <a href="/"><img src="images/linkus.png" alt="linkus"></a>
-</div>
-<nav class="category">
-    <ul class="nav__links">
-        <li><a href="/project">프로젝트</a></li>
-        <li><a href="/study">스터디</a></li>
-        <li><a href="/program">교내 프로그램</a></li>
-    </ul>
-    <div class="dropdown-content">
-        <ul class="dropdown_category__project">
-            <li><a href="#">전체</a></li>
-            <li><a href="#">수업</a></li>
-            <li><a href="#">관심</a></li>
-        </ul>
-        <ul class="dropdown_category__study">
-            <li><a href="#">전체</a></li>
-            <li><a href="#">수업</a></li>
-            <li><a href="#">관심</a></li>
-        </ul>
-        <ul class="dropdown_category__program">
-            <li><a href="#">전체</a></li>
-            <li><a href="#">튜터링</a></li>
-            <li><a href="#">공모전/프로그램</a></li>
-            <li><a href="#">창의학기제</a></li>
-
-        </ul>
-        <ul class="dropdown_category__program2">
-            <li><a href="#">창의학습공동체</a></li>
-            <li><a href="#">해커톤</a></li>
-        </ul>
+<header>
+    <div class="identity">
+        <a href="/"><img src="/images/logo.png" alt="logo"></a>
+        <a href="/"><img src="/images/linkus.png" alt="linkus"></a>
     </div>
-    <div class="registration">
+    <nav class="category">
+        <ul class="nav__links">
+            <li><a href="/project">프로젝트</a></li>
+            <li><a href="/study">스터디</a></li>
+            <li><a href="/program">교내 프로그램</a></li>
+        </ul>
+        <div class="dropdown-content">
+            <ul class="dropdown_category__project">
+                <li><a href="#">전체</a></li>
+                <li><a href="#">수업</a></li>
+                <li><a href="#">관심</a></li>
+            </ul>
+            <ul class="dropdown_category__study">
+                <li><a href="#">전체</a></li>
+                <li><a href="#">수업</a></li>
+                <li><a href="#">관심</a></li>
+            </ul>
+            <ul class="dropdown_category__program">
+                <li><a href="#">전체</a></li>
+                <li><a href="#">튜터링</a></li>
+                <li><a href="#">공모전/프로그램</a></li>
+                <li><a href="#">창의학기제</a></li>
 
+            </ul>
+            <ul class="dropdown_category__program2">
+                <li><a href="#">창의학습공동체</a></li>
+                <li><a href="#">해커톤</a></li>
+            </ul>
+        </div>
+        <div class="registration">
+            <%# if(!isLogin) { %>
+                <span class="nav__registration"><a href="/login">로그인</a>/<a href="/registration">회원가입 </a></span>
+                <% /* } else { %>
+                    <a href="#">
+                        <img src="images/icon_msg.png" alt="icon_msg">
+                    </a>
+                    <a href="/profile">
+                        <img src="images/icon_user.png" alt="icon_user">
+                    </a>
+                    <% } */%>
 
-    </div>
-</nav>
+        </div>
+    </nav>
 
 
 </header>

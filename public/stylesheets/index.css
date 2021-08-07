@@ -22,3 +22,9 @@
     justify-content: center;
 
 }
+
+.search_bar > input{
+    width: 100%;
+    margin-top: 30px;
+    height: 35px;
+}
