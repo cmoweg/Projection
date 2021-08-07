@@ -1,145 +1,107 @@
-* {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    background: #FFFFFF;
-}
-html {
-    width: 100%;
-    height: 100%;
-}
-body {
-    position: absolute;
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-}
-
-nav {
-    position: absolute;
-    width: 100%;
-    height: 69.5px;
-    left: 0px;
-    top: 90px;
-
-    background: #000538;
-    border-top: 1.5px solid #424779;
-}
-nav p {
-    position: absolute;
-    height: 23px;
-    font-size: 20px;
-    line-height: 23px;
-    text-align: center;
-    letter-spacing: 0.1em;
-    background: #000538;
-}
-a {
-    text-decoration: none;
-    background: #000538;
-}
-.all {
-    left: 40px;
-    color: #FFFFFF;
-}
-
-.class {
-    left: 155px;
-    color: #FFFFFF;
-}
-
-.inter {
-    left: 270px;
-    color: #FFFFFF;
-}
-
-.new {
-    left: 1745px;
-    color: #FFFFFF;
-}
-
-.search2 {
-    position: absolute;
+.input1 {
+    position: relative;
+    display: flex;
+    align-items: stretch;
     width: 540px;
     height: 43px;
-    left: 690px;
-    top: 369px;
 
+    border-top-left-radius: 100%;
+    border-bottom-left-radius: 100%;
     background: #FFFFFF;
-    border: 1px solid #000000;
-    border-radius: 100px;
+    margin: 0 auto;
+    margin-top: 369px;
 }
-.s_img2 {
-    width: 25.71px;
+.form-control {
+    display: block;
+    width: 100%;
+    padding: .375rem .95rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #fff;
+    border: 1px solid;
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+    position: relative;
+    flex: 1 1 auto;
+    border-right-style: none;
+}
+.form-control:focus {outline:none;}
+
+.button {
+    cursor: pointer;
+    background-color: transparent;
+    padding: .375rem .75rem;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    position: relative;
+    border: 1px solid;
+    border-left-style: none;
+}
+.search_img {
+    width: 30px;
     height: 30px;
-    float: right;
-    margin-right: 10px;
-    margin-top: 5px;
 }
 
 .search_box {
-    position: absolute;
+    position: relative;
+    margin: 264px auto 0;
     width: 880px;
     height: 253px;
-    left: 520px;
-    top: 264px;
 
+    display: flex;
+    flex-wrap: wrap;
     background: #FFFFFF;
     border: 1px solid #000000;
 }
 
-.search_num {
-    position: absolute;
+.select1 {
+    cursor: pointer;
     width: 355px;
     height: 43px;
-    margin-left: 75px;
-    margin-top: 50px;
-
-    background: #FFFFFF;
-    border: 1px solid #000000;
-    box-sizing: border-box;
+    padding: .375rem 2.25rem .375rem .75rem;
+    color: #212529;
+    background-color: #fff;
+    background-image: url('/images/select.svg');
+    background-repeat: no-repeat;
+    background-position: right .75rem center;
+    background-size: 16px 12px;
+    border: 1px solid;
+    border-radius: .25rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 50px 0 0 75px;
 }
-
-.search_name {
-    position: absolute;
+.select2 {
+    cursor: pointer;
     width: 160px;
     height: 43px;
-    margin-left: 458px;
-    margin-top: 50px;
-
-    background: #FFFFFF;
-    border: 1px solid #000000;
-    box-sizing: border-box;
+    padding: .375rem 2.25rem .375rem .75rem;
+    color: #212529;
+    background-color: #fff;
+    background-image: url('/images/select.svg');
+    background-repeat: no-repeat;
+    background-position: right .75rem center;
+    background-size: 16px 12px;
+    border: 1px solid;
+    border-radius: .25rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 50px 0 0 28px;
 }
+.select1:focus {outline:none;}
+.select2:focus {outline:none;}
 
-.search_class {
-    position: absolute;
-    width: 160px;
-    height: 43px;
-    margin-left: 646px;
-    margin-top: 50px;
-
-    background: #FFFFFF;
-    border: 1px solid #000000;
-    box-sizing: border-box;
-}
-
-.search {
-    position: absolute;
+.input2 {
+    position: relative;
+    display: flex;
     width: 540px;
     height: 43px;
-    margin-left: 170px;
-    margin-top: 160px;
 
+    border-top-left-radius: 100%;
+    border-bottom-left-radius: 100%;
     background: #FFFFFF;
-    border: 1px solid #000000;
-    border-radius: 100px;
-}
-.s_img {
-    width: 25.71px;
-    height: 30px;
-    float: right;
-    margin-right: 10px;
-    margin-top: 5px;
+    margin: 20px auto 0;
 }

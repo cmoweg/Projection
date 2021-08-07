@@ -1,0 +1,51 @@
+.nav {
+    position: absolute;
+    width: 100%;
+    height: 69.5px;
+    top: 90px;
+    display: flex;
+    background: #000538;
+    border-top: 1.5px solid #424779;
+}
+.navp {
+    font-size: 20px;
+    line-height: 35px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    background: #000538;
+    display: flex;
+}
+.a {
+    text-decoration: none;
+    background: #000538;
+}
+.all {
+    margin-left: 40px;
+    color: #FFFFFF;
+}
+.tutor {
+    margin-left: 76px;
+    color: #FFFFFF;
+}
+.cont {
+    margin-left: 76px;
+    color: #FFFFFF;
+}
+.sem {
+    margin-left: 76px;
+    color: #FFFFFF;
+}
+.stu {
+    margin-left: 76px;
+    color: #FFFFFF;
+}
+.hac {
+    margin-left: 76px;
+    color: #FFFFFF;
+}
+
+.new {
+    position: absolute;
+    right: 30px;
+    color: #FFFFFF;
+}

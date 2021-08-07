@@ -1,33 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>program</title>
+    <link rel='stylesheet' href='/stylesheets/reset.css' />
+    <link rel="stylesheet" href="/stylesheets/program_nav.css">
     <link rel="stylesheet" href="/stylesheets/program.css">
-
 </head>
-
 <body>
+    <!--<%- include("../common/header") %>-->
 
-    <%- include("../common/header") %>
+    <nav class="nav">
+        <p><a href="/program/all" class="all navp a">전체</a></p>
+        <p><a href="/program/tutor" class="tutor navp a">튜터링</a></p>
+        <p><a href="/program/cont" class="cont navp a">공모전/창업프로그램</a></p>
+        <p><a href="/program/sem" class="sem navp a">창의학기제</a></p>
+        <p><a href="/program/stu" class="stu navp a">창의학습공동체</a></p>
+        <p><a href="/program/hac" class="hac navp a">해커톤</a></p>
+        <p><a href="#" class="new navp a">새로운 글 쓰기</a></p>
+    </nav>
 
+    <style>
+        .<%=form%> {
+            color: #F27357;
+        }
+    </style>
 
-        <nav>
-            <p class="all"><a href="/program/all" class="all">전체</a></p>
-            <p class="tutor"><a href="/program/tutor" class="tutor">튜터링</a></p>
-            <p class="cont"><a href="/program/cont" class="cont">공모전/창업프로그램</a></p>
-            <p class="sem"><a href="/program/sem" class="sem">창의학기제</a></p>
-            <p class="stu"><a href="/program/stu" class="stu">창의학습공동체</a></p>
-            <p class="hac"><a href="/program/hac" class="hac">해커톤</a></p>
-            <p class="new">새로운 글 쓰기</p>
-        </nav>
-
-        <div class="search">
-            <img src="/images/search.png" class="s_img">
-        </div>
+    <div class="input1">
+        <input type="text" class="form-control" placeholder="검색어를 입력하세요.">
+        <button class="button" type="button">
+            <img src="/images/search.png" class="search_img">
+        </button>
+    </div>
 </body>
-
 </html>

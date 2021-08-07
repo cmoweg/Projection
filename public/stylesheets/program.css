@@ -1,89 +1,44 @@
-* {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    background: #FFFFFF;
-}
-html {
-    width: 100%;
-    height: 100%;
-}
-body {
-    position: absolute;
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-}
-
-nav {
-    position: absolute;
-    width: 100%;
-    height: 69.5px;
-    left: 0px;
-    top: 90px;
-
-    background: #000538;
-    border-top: 1.5px solid #424779;
-}
-nav p {
-    position: absolute;
-    height: 23px;
-    font-size: 20px;
-    line-height: 23px;
-    text-align: center;
-    letter-spacing: 0.1em;
-    background: #000538;
-}
-a {
-    text-decoration: none;
-    background: #000538;
-}
-.all {
-    left: 40px;
-    color: #F27357;
-}
-.tutor {
-    left: 155px;
-    color: #FFFFFF;
-}
-.cont {
-    left: 291px;
-    color: #FFFFFF;
-}
-.sem {
-    left: 559px;
-    color: #FFFFFF;
-}
-.stu {
-    left: 735px;
-    color: #FFFFFF;
-}
-.hac {
-    left: 952px;
-    color: #FFFFFF;
-}
-
-.new {
-    left: 1745px;
-    color: #FFFFFF;
-}
-
-.search {
-    position: absolute;
+.input1 {
+    position: relative;
+    display: flex;
+    align-items: stretch;
     width: 540px;
     height: 43px;
-    left: 690px;
-    top: 369px;
 
+    border-top-left-radius: 100%;
+    border-bottom-left-radius: 100%;
     background: #FFFFFF;
-    border: 1px solid #000000;
-    border-radius: 100px;
+    margin: 0 auto;
+    margin-top: 369px;
 }
-.s_img {
-    width: 25.71px;
+.form-control {
+    display: block;
+    width: 100%;
+    padding: .375rem .95rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #fff;
+    border: 1px solid;
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+    position: relative;
+    flex: 1 1 auto;
+    border-right-style: none;
+}
+.form-control:focus {outline:none;}
+
+.button {
+    cursor: pointer;
+    background-color: transparent;
+    padding: .375rem .75rem;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    position: relative;
+    border: 1px solid;
+    border-left-style: none;
+}
+.search_img {
+    width: 30px;
     height: 30px;
-    float: right;
-    margin-right: 10px;
-    margin-top: 5px;
 }

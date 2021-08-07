@@ -60,13 +60,14 @@ router.get('/study/:form', function (req, res, next) {
 })
 
 router.get('/program', function (req, res, next) {
-  res.redirect('/program/all')
+  res.redirect('/program/all');
 });
 
-router.get('/program/:category', function (req, res, next) {
-  res.render('page/program');
-});
-
+router.get('/program/:form', function (req, res, next) {
+  let form = req.params.form;
+  console.log(form);
+  res.render('page/program', { "form": form });
+})
 
 router.get('/post/:nav/:form', function (req, res, next) {
   let nav = req.params.nav;
