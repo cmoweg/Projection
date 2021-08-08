@@ -1,10 +1,22 @@
 <% for(subject in post_intro) { %>
-    <div>
-        <%= subject %>
-    </div>
-    <% for(post of post_intro[subject]) { %>
-        <div>
-            <%= post.title %> | <%= post.description %>
+    <div class="recent_post_slides">
+        <div class="post_category_title">
+            <%= subject %>
         </div>
-        <% } %>
-            <% } %>
+        <div class="slide_wrap">
+            <% for(post of post_intro[subject]) { %>
+                <a class="recent_post">
+                    <img src="https://picsum.photos/320/240" alt="">
+                    <div class="post_info">
+                        <span class="post_title">
+                            <%= post.title %>
+                        </span>
+                        <span class="post_description">
+                            <%= post.description %>
+                        </span>
+                    </div>
+                </a>
+                <% } %>
+        </div>
+    </div>
+    <% } %>
