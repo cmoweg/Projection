@@ -9,7 +9,7 @@
     border-bottom-left-radius: 100%;
     background: #FFFFFF;
     margin: 0 auto;
-    margin-top: 369px;
+    margin-top: 207px;
 }
 .form-control {
     display: block;
@@ -44,8 +44,9 @@
 }
 
 .search_box {
+    z-index: -1;
     position: relative;
-    margin: 264px auto 0;
+    margin: 104px auto 0;
     width: 880px;
     height: 253px;
 
