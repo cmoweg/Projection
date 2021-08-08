@@ -99,3 +99,16 @@
     border: 3px solid blue;
     color: blue;
 }
+
+.list{
+    position: absolute;
+    top: 150;
+    left: 85%;
+    margin-top: -50px;
+    font-weight: bold;
+}
+
+#list_link{
+    text-decoration: none;
+    color: rgb(95, 95, 95);
+}

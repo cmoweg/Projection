@@ -17,7 +17,7 @@
 
             <div>
                 <h1>제목</h1>
-                <p class="list">목록으로</p>
+                <p class="list"><a href="/<%=nav %>/<%=form %>" id="list_link">목록으로</a></p>
             </div>
 
 
@@ -97,6 +97,8 @@
 
             <% } else { %>
                     <div id="profile">
+                        리더 프로필
+                        <br>
                         <img src="/images/턱괸고앵.jpg" alt="" id="icon"> 닉네임
                         <p>
                             모집 기간 <br>
@@ -106,7 +108,7 @@
                             모집 현황 <br>
                             ---------
                         </p>
-                        <button class="blue">지원하기</button>
+                        <button id="btn" class="blue">지원하기</button>
                     </div>
 
                     <div id="team">
