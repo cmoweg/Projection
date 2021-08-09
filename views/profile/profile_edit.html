@@ -6,52 +6,82 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>profile_edit</title>
+    <link rel='stylesheet' href='/stylesheets/reset.css' />
+    <link rel="stylesheet" href="/stylesheets/header.css">
     <link rel="stylesheet" href="/stylesheets/profile_edit.css">
 
 </head>
 
-<body>
-
+<body class="profile_body">
+    
     <%- include("../common/header") %>
-
-        <article>
-            <section>
-                <div class="info_font pf">PROFILE</div>
-                <img src="/images/profile.png" class="pf_image">
-                <img src="/images/camera_edit.png" class="camera_image">
-                <div class="info_font edit"><a href="my" class="edit">수정완료</a></div>
-                <div class="info_font info_name">닉네임</div>
-                <div class="info_font info_sub">학과</div>
-                <div class="info_font info_grade">학년</div>
-                <div class="info_font info_pos">포지션</div>
-                <div class="info_font info_add">연락처
-                    <label>
-                        <input type="checkbox" value="공개">공개
-                        <input type="checkbox" value="비공개">비공개
-                    </label>
-                </div>
-            </section>
-            <hr>
-            <section>
-                <div class="skills">SKILLS</div>
-                <div class="skill skill_font">JAVA</div>
-                <div class="sk_font sk_port">포트폴리오</div>
-                <div class="sk_box box_port"></div>
-                <div class="sk_font sk_team">팀 프로젝트</div>
-                <div class="sk_box box_team"></div>
-                <div class="sk_font sk_award">수상 이력</div>
-                <div class="sk_box box_award"></div>
-                <div class="sk_font sk_lic">자격증</div>
-                <div class="sk_box box_lic"></div>
-                <div class="sk_font sk_intro">자기소개</div>
-                <div class="sk_box box_intro"></div>
-                <!--<div class="sk_font sk_pro">팀 프로젝트</div>
-            <div class="sk_box box_pro">
-                <div class="state state_font">모집 중</div>
-            </div>-->
-            </section>
-        </article>
-
-</body>
+  
+    <main class="profile_main">
+        <div class="pf1">
+            <p class="pf">PROFILE</p>
+            <img src="/images/profile.png" class="pf_image">
+            <img src="/images/camera_edit.png" class="camera_image">
+            <p><a href="my" class="edit">수정완료</a></p>
+          </div>
+      
+          <div class="pf2">
+              <div class="div_detail">
+                  <p class="info_font">닉네임</p>
+                  <input class="pf_input">
+              </div>
+              <div class="div_detail">
+                    <p class="info_font info_letter-spacing">학과</p>
+                    <select class="select1">
+                        <option selected>학과</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+              </div>
+              <div class="div_detail">
+                  <p class="info_font info_letter-spacing">학년</p>
+                    <select class="select1">
+                        <option selected>학년</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="3">4</option>
+                        <option value="3">5</option>
+                    </select> 
+              </div>
+              <div class="div_detail">
+                  <p class="info_font">포지션</p>
+                  <input class="pf_input">   
+              </div>
+              <div class="div_detail">
+                  <p class="info_font">연락처</p>
+                  <input class="pf_input" type="tel">
+              </div>
+      
+              <hr class="hr">
+      
+              <div class="sk_font2">SKILLS
+                <textarea class="detail_input"></textarea>
+              </div>
+              <div class="sk_font2">포트폴리오
+                <textarea class="detail_input"></textarea>
+              </div>
+              <div class="sk_font2">팀 프로젝트
+                <textarea class="detail_input"></textarea>
+              </div>
+              <div class="sk_font2">수상 이력
+                <textarea class="detail_input"></textarea>
+              </div>
+              <div class="sk_font2">자격증
+                <textarea class="detail_input"></textarea>
+              </div>
+              <div class="sk_font2">자기소개
+                <textarea class="detail_input"></textarea>
+              </div>
+            </div>
+    </main>
+  
+  
+  </body>
 
 </html>

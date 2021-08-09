@@ -1,115 +1,103 @@
-* {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    background: #FFFFFF;
-}
-html {
-    width: 100%;
+.profile_body{
+    margin:0 auto;
     height: 100%;
-}
-body {
-    position: absolute;
-    box-sizing: border-box;
     width: 100%;
-    height: 100%;
-    margin: 0px;
 }
-
-section div {
-    position: absolute;
+.profile_main {
+    margin-left: 25%;
+    box-sizing: content-box;
 }
-
+.pf1 {
+    box-sizing: content-box;
+    width: auto;
+    float: left;
+    display: block;
+    margin-right: 168px;
+    margin-top: 120px;
+}
+.div_detail {
+    margin-bottom: 0;
+}
 .info_font {
+    display: inline-block;
     font-size: 25px;
     line-height: 29px;
-    text-align: center;
     letter-spacing: 0.3em;
+    padding-right: 30px;
+    margin-top: 0;
 }
-.pf {
-    left: 259px;
-    top: 210px;
+.info_detail {
+    letter-spacing: normal;
+    display: inline;
+    font-size: 20px;
+}
 
+.info_letter-spacing {
+    letter-spacing: 1.5em;
+    padding-right: 5px;
+}
+.pf_input {
+    height: 30px;
+}
+.pf { 
+    margin-bottom: 20px;
     font-size: 40px;
     line-height: 47px;
+    letter-spacing: 0.3em;
+    display: block;
+    font-weight: normal;
 }
 .pf_image {
-    position: absolute;
     width: 200px;
     height: 200px;
-    left: 273px;
-    top: 277px;
+    margin-bottom: 10px;
+    padding-left: 15px;
 }
 .camera_image {
-    position: absolute;
+    position: relative;
     width: 50px;
     height: 50px;
-    left: 425px;
-    top: 277px;
-    border-radius: 100%;
+    left: -50px;
+    top: -150px;
 }
 .edit {
-    left: 327px;
-    top: 497px;
-
+    letter-spacing: 0.3em;
     font-size: 20px;
     line-height: 23px;
     color: #716E6E;
     text-decoration: none;
-}
-.info_name {
-    left: 641px;
-    top: 277px;
-}
-.info_sub {
-    left: 641px;
-    top: 338px;
-
-    letter-spacing: 1.5em;
-}
-.info_grade {
-    left: 641px;
-    top: 399px;
-
-    letter-spacing: 1.5em;
-}
-.info_pos {
-    left: 641px;
-    top: 460px;
-}
-.info_add {
-    left: 641px;
-    top: 521px;
+    margin-left: 65px;
 }
 
-hr {
-    position: absolute;
-    width: 1050px;
-    height: 0px;
-    left: 611px;
-    top: 590px;
-    border: 2px solid #000538;
+.pf2 {
+    box-sizing: content-box;
+    width: 500px;
+    height: auto;
+
+    float: left;
+    margin-top: 220px;
 }
+
+.hr {
+    width: 600px;
+    border: 0;
+    height: 2px;
+    background: #000538;
+    margin-top: 30px;
+}
+
 .skills {
-    left: 641px;
-    top: 630px;
-
     font-size: 30px;
     line-height: 35px;
-    text-align: center;
     letter-spacing: 0.2em;
 }
 .skill {
+    box-sizing: content-box;
     width: 80px;
     height: 80px;
-    left: 641px;
-    top: 690px;
 
     background: #000538;
-    border-radius: 20px;
-}
-.skill_font {
-    left: 654px;
+    border-radius: 30%;
 
     font-size: 20px;
     line-height: 80px;
@@ -117,76 +105,45 @@ hr {
     letter-spacing: 0.1em;
 
     color: #FFFFFF;
+    float: left;
+    margin-right: 13px;
 }
-
-.sk_font {
-    left: 641px;
+.sk_font2 {
     font-size: 30px;
     line-height: 35px;
-    text-align: center;
     letter-spacing: 0.2em;
-    margin-bottom: 109px;
+    padding-top: 10px;
 }
 .sk_box {
-    width: 816px;
+    width: auto;
     height: 40px;
-    left: 641px;
-
+    margin-bottom: 10px;
+    margin-top: 10px;
     background: #FFFFFF;
     border: 2px solid #000538;
     box-sizing: border-box;
 }
-.sk_port {
-    top: 810px;
-}
-.box_port {
-    top: 860px;
-}
-.sk_team {
-    top: 919px;
-}
-.box_team {
-    top: 969px;
-}
-.sk_award {
-    top: 1028px;
-}
-.box_award {
-    top: 1078px;
-}
-.sk_lic {
-    top: 1137px;
-}
-.box_lic {
-    top: 1187px;
-}
-.sk_intro {
-    top: 1242px;
-}
-.box_intro {
-    height: 70px;
-    top: 1292px;
-}
-.sk_pro {
-    top: 1377px;
-}
-.box_pro {
-    top: 1427px;
-    display: block;
-}
-.state {
-    display: block;
-    float: right;
-    width: 78.57px;
-    height: 25px;
 
-    background: #5782F2;
-    border: 1px solid #5782F2;
-    border-radius: 100px;
+.select1 {
+    display: inline;
+    cursor: pointer;
+    width: 177px;
+    height: 36px;
+    padding: .375rem 2.25rem .375rem .75rem;
+    color: #212529;
+    background-color: #fff;
+    background-image: url('/images/select.svg');
+    background-repeat: no-repeat;
+    background-position: right .75rem center;
+    background-size: 16px 12px;
+    border: 1px solid;
+    border-radius: .25rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
-.state_font {
-    font-size: 15px;
-    text-align: center;
-    line-height: 18px;
-    color: #FFFFFF;
+.detail_input {
+    height: 35px;
+    width: 600px;
+    font-size: 20px;
 }

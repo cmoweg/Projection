@@ -5,47 +5,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>profile_other</title>
-    <link rel="stylesheet" href="/stylesheets/profile_other.css">
+    <title>profile</title>
+    <link rel='stylesheet' href='/stylesheets/reset.css' />
+    <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/profile.css">
 
 </head>
 
-<body>
-
+<body class="body">
+    
     <%- include("../common/header") %>
-
-        <article>
-            <section>
-                <div class="info_font pf">PROFILE</div>
-                <img src="/images/profile.png" class="pf_image">
-                <!--<div class="info_font edit">쪽지보내기</div>-->
-                <div class="info_font info_name">닉네임</div>
-                <div class="info_font info_sub">학과</div>
-                <div class="info_font info_grade">학년</div>
-                <div class="info_font info_pos">포지션</div>
-                <div class="info_font info_add">연락처</div>
-            </section>
-            <hr>
-            <section>
-                <div class="skills">SKILLS</div>
-                <div class="skill skill_font">JAVA</div>
-                <div class="sk_font sk_port">포트폴리오</div>
-                <div class="sk_box box_port"></div>
-                <div class="sk_font sk_team">팀 프로젝트</div>
-                <div class="sk_box box_team"></div>
-                <div class="sk_font sk_award">수상 이력</div>
-                <div class="sk_box box_award"></div>
-                <div class="sk_font sk_lic">자격증</div>
-                <div class="sk_box box_lic"></div>
-                <div class="sk_font sk_intro">자기소개</div>
-                <div class="sk_box box_intro"></div>
-                <!--<div class="sk_font sk_pro">팀 프로젝트</div>
-            <div class="sk_box box_pro">
-                <div class="state state_font">모집 중</div>
-            </div>-->
-            </section>
-        </article>
-
-</body>
+  
+    <main class="main">
+      <div class="pf1">
+        <p class="pf">PROFILE</p>
+        <img src="/images/profile.png" class="pf_image">
+      </div>
+  
+      <div class="pf2">
+        <p class="info_font">닉네임</p>     
+        <p class="info_font info_letter-spacing">학과</p>
+        <p class="info_font info_letter-spacing">학년</p>
+        <p class="info_font">포지션</p>
+        <p class="info_font">연락처</p>
+        <hr class="hr">
+  
+        <p class="skills">SKILLS</p>
+        <div class="skill">JAVA</div>
+        <div class="skill">C</div>
+        <div class="sk_font">포트폴리오
+          <div class="sk_box"></div>
+        </div>
+        <div class="sk_font2">팀 프로젝트
+          <div class="sk_box"></div>
+        </div>
+        <div class="sk_font2">수상 이력
+          <div class="sk_box"></div>
+        </div>
+        <div class="sk_font2">자격증
+          <div class="sk_box"></div>
+        </div>
+        <div class="sk_font2">자기소개
+          <div class="sk_box"></div>
+        </div>
+      </div>
+    </main>
+  
+  
+  </body>
 
 </html>
