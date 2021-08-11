@@ -1,9 +1,11 @@
+html, body{
+    max-width: 100%;
+    overflow-x: hidden;
+}
 .content{
     width: 100%;
     
 }
-
-
 .search__section{
     width: 100%;
     height: 290px;
@@ -27,4 +29,71 @@
     width: 100%;
     margin-top: 30px;
     height: 35px;
+}
+
+
+
+.recent_post_slides{
+    width: 80vw;
+    margin: 50px auto;
+}
+
+.post_category_title{
+    font-size: 40px;
+}
+
+
+.slide_wrap{
+    display: flex;
+    flex-wrap: nowrap;
+    /* overflow-x: auto; */
+    /* overflow-y: hidden; */
+    overflow: hidden;
+    justify-content: space-between;
+}
+
+.slide_wrap > .recent_post {
+    margin-right: 15px;
+    flex: 0 0 auto;
+    width: calc(25% - 15px);
+    position: relative;
+}
+
+
+
+.post_info {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.post-cover {
+    z-index: 100;
+    width: 100%;
+    height: 240px;
+    position: absolute;
+    background-color: black;
+    opacity: 0;
+    transition: all ease 0.2s;
+}
+
+.post-cover > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+.post-info {
+    /* z-index: ; */
+    color: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.post-cover:hover {
+    opacity: 0.5;
 }
