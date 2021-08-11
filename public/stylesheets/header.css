@@ -75,7 +75,7 @@ header a{
     height: 270px;
     justify-content: space-between;
     /* display: block; */
-
+    z-index: 100;
 
 }
 
