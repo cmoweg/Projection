@@ -1,9 +1,11 @@
+html, body{
+    max-width: 100%;
+    overflow-x: hidden;
+}
 .content{
     width: 100%;
     
 }
-
-
 .search__section{
     width: 100%;
     height: 290px;
@@ -44,18 +46,54 @@
 .slide_wrap{
     display: flex;
     flex-wrap: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;
+    /* overflow-x: auto; */
+    /* overflow-y: hidden; */
+    overflow: hidden;
+    justify-content: space-between;
 }
 
 .slide_wrap > .recent_post {
     margin-right: 15px;
     flex: 0 0 auto;
-    /* width: 320px; */
-    /* height: 240px; */
+    width: calc(25% - 15px);
+    position: relative;
 }
+
+
 
 .post_info {
     display: flex;
     justify-content: space-between;
+}
+
+
+.post-cover {
+    z-index: 100;
+    width: 100%;
+    height: 240px;
+    position: absolute;
+    background-color: black;
+    opacity: 0;
+    transition: all ease 0.2s;
+}
+
+.post-cover > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+.post-info {
+    /* z-index: ; */
+    color: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.post-cover:hover {
+    opacity: 0.5;
 }
