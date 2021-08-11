@@ -5,13 +5,21 @@
     <link rel="stylesheet" href="/stylesheets/reset.css">
     <link rel="stylesheet" href="/stylesheets/header.css">
     <link rel="stylesheet" href="/stylesheets/post.css">
+    <link rel="stylesheet" href="/stylesheets/program_nav.css">
+    <link rel="stylesheet" href="/stylesheets/nav.css">
+
     <meta charset="UTF-8">
     <title>Document</title>
 </head>
 
 <body id="post_body">
     <%- include("../common/header") %>
-
+    
+    <% if(nav=="program"){ %>
+       <%- include("../page/program_nav") %>
+    <% } else{ %>
+        <%- include("../page/nav") %>
+    <% } %>
 
         <main id="post_main">
 

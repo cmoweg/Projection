@@ -12,7 +12,12 @@
 <body id="detail_body">
     <%- include("../common/header") %>
 
-
+    <% if(nav=="program"){ %>
+        <%- include("../page/program_nav") %>
+     <% } else{ %>
+         <%- include("../page/nav") %>
+     <% } %>
+     
         <main id="detail_main">
 
             <div>
