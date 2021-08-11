@@ -1,6 +1,6 @@
 header {
     width: 100%;
-    height: 7vh;
+    height: 9vh;
     display: flex;
     /* justify-content: space-between; */
     align-items: center;
@@ -70,7 +70,7 @@ header a{
     position:absolute;
     background-color: #C4C4C4;
     min-width: 160px; 
-    top: 7vh;
+    top: 9vh;
     width: 1000px;
     height: 270px;
     justify-content: space-between;
