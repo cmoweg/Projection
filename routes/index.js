@@ -91,7 +91,7 @@ router.get('/:nav/:form/post', function (req, res, next) {
     if (form == "tutoring") {
       subject = false;
     }
-    else if (form == "contest" || form == "creative_semester" || form == "creative_team") {
+    else if (form == "contest" || form == "creative_semester" || form == "creative_community") {
       class_info = false;
     }
   }
@@ -123,7 +123,7 @@ router.get('/:nav/:form/post_detail', function (req, res, next) {
     if (form == "tutoring") {
       subject = false;
     }
-    else if (form == "contest" || form == "creative_semester" || form == "creative_team") {
+    else if (form == "contest" || form == "creative_semester" || form == "creative_community") {
       class_info = false;
     }
   }
