@@ -87,16 +87,16 @@ router.get('/:nav/:form/post', function (req, res, next) {
       class_info = false;
     }
   }
-  else if (nav == "dodream") {
+  else if (nav == "program") {
     if (form == "tutoring") {
       subject = false;
     }
-    else if (form == "contest" || form == "creative" || form == "creative_team") {
+    else if (form == "contest" || form == "creative_semester" || form == "creative_team") {
       class_info = false;
     }
   }
 
-  res.render('post/post', {"nav":nav, "form": form, "class_info": class_info, "subject": subject, "position": position });
+  res.render('post/post', { "nav": nav, "form": form, "class_info": class_info, "subject": subject, "position": position });
 })
 
 
@@ -119,15 +119,15 @@ router.get('/:nav/:form/post_detail', function (req, res, next) {
       class_info = false;
     }
   }
-  else if (nav == "dodream") {
+  else if (nav == "program") {
     if (form == "tutoring") {
       subject = false;
     }
-    else if (form == "contest" || form == "creative" || form == "creative_team") {
+    else if (form == "contest" || form == "creative_semester" || form == "creative_team") {
       class_info = false;
     }
   }
 
-  res.render('post/post_detail', {"nav":nav, "form": form, "class_info": class_info, "subject": subject, "position": position, "isWriter": false });
+  res.render('post/post_detail', { "nav": nav, "form": form, "class_info": class_info, "subject": subject, "position": position, "isWriter": false });
 })
 module.exports = router;
