@@ -3,6 +3,8 @@
         <div class="post_category_title">
             <%= subject %>
         </div>
+        <button class="slideLeft" type="button">Slide left</button>
+        <button class="slideRight" type="button">Slide right</button>
         <div class="slide_wrap">
             <% for(post of post_intro[subject]) { %>
                 <a class="recent_post">
@@ -17,6 +19,9 @@
                     <div class="post_info">
                         <span class="post_title">
                             <%= post.title %>
+                        </span>
+                        <span class="team_member">
+                            <%= post.current_member %> / <%= post.max_member %>
                         </span>
                     </div>
 

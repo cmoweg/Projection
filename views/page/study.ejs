@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,46 +10,52 @@
     <link rel="stylesheet" href="/stylesheets/header.css">
     <link rel="stylesheet" href="/stylesheets/nav.css">
     <link rel="stylesheet" href="/stylesheets/study.css">
+    <link rel="stylesheet" href="/stylesheets/post_list.css">
+
 </head>
+
 <body>
 
     <%- include("../common/header") %>
-    <%- include("nav") %>
+        <%- include("nav") %>
 
-    <% if(form == "all"){ %>
-        <div class="input1">
-            <input type="text" class="form-control" placeholder="검색어를 입력하세요.">
-            <button class="button" type="button">
-                <img src="/images/search.png" class="search_img">
-            </button>
-        </div>
-        <% } else if (form=="class" || form=="interest" ) { %>
-            <div class="search_box">
-                <select class="select1">
-                    <option selected>학수번호</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select>
-                <select class="select2">
-                    <option selected>교수명</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select>
-                <select class="select2">
-                    <option selected>분반</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select>
-                <div class="input2">
-                    <input type="text" class="form-control" placeholder="검색어를 입력하세요">
+            <% if(form=="all" ){ %>
+                <div class="input1">
+                    <input type="text" class="form-control" placeholder="검색어를 입력하세요.">
                     <button class="button" type="button">
                         <img src="/images/search.png" class="search_img">
                     </button>
                 </div>
-            </div>
-        <% } %>
+                <% } else if (form=="class" || form=="interest" ) { %>
+                    <div class="search_box">
+                        <select class="select1">
+                            <option selected>학수번호</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                        <select class="select2">
+                            <option selected>교수명</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                        <select class="select2">
+                            <option selected>분반</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                        <div class="input2">
+                            <input type="text" class="form-control" placeholder="검색어를 입력하세요">
+                            <button class="button" type="button">
+                                <img src="/images/search.png" class="search_img">
+                            </button>
+                        </div>
+                    </div>
+                    <% } %>
+                        <%- include("post_list") %>
+
 </body>
+
 </html>

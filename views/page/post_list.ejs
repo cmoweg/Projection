@@ -1,0 +1,24 @@
+<div class="gallery">
+    <% for(post of post_list) { %>
+        <a class="gallery-item">
+            <div class="post-cover">
+                <div class="post-info">
+                    <span class="post_description">
+                        <%= post.description %>
+                    </span>
+                </div>
+            </div>
+            <img src="https://picsum.photos/320/240" alt="">
+            <div class="post_info">
+                <span class="post_title">
+                    <%= post.title %>
+                </span>
+                <span class="team_member">
+                    <%= post.current_member %> / <%= post.max_member %>
+                </span>
+            </div>
+
+
+        </a>
+        <% } %>
+</div>

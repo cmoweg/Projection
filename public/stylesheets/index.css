@@ -64,14 +64,8 @@ html, body{
     width: 100%;
     height: 90%;
     object-fit: cover;
-
 }
 
-
-.post_info {
-    display: flex;
-    justify-content: space-between;
-}
 
 
 .post-cover {
@@ -97,4 +91,10 @@ html, body{
 
 .post-cover:hover {
     opacity: 0.5;
+}
+
+
+.post_info{
+    display: flex;
+    justify-content: space-between;
 }

@@ -10,19 +10,22 @@
     <link rel="stylesheet" href="/stylesheets/header.css">
     <link rel="stylesheet" href="/stylesheets/program_nav.css">
     <link rel="stylesheet" href="/stylesheets/program.css">
+    <link rel="stylesheet" href="/stylesheets/post_list.css">
 </head>
 
 <body>
     <%- include("../common/header") %>
-    <%- include("program_nav") %>
+        <%- include("program_nav") %>
 
 
-        <div class="input1">
-            <input type="text" class="form-control" placeholder="검색어를 입력하세요.">
-            <button class="button" type="button">
-                <img src="/images/search.png" class="search_img">
-            </button>
-        </div>
+            <div class="input1">
+                <input type="text" class="form-control" placeholder="검색어를 입력하세요.">
+                <button class="button" type="button">
+                    <img src="/images/search.png" class="search_img">
+                </button>
+            </div>
+            <%- include("post_list") %>
+
 </body>
 
 </html>
