@@ -13,16 +13,18 @@
 <body>
 
     <%- include("../common/header") %>
-    <%- include("nav") %>
+    <%- include("study_nav") %>
 
     <% if(form == "all"){ %>
         <div class="input1">
             <input type="text" class="form-control" placeholder="검색어를 입력하세요.">
             <button class="button" type="button">
-                <img src="/images/search.png" class="search_img">
+                <a href="#">
+                    <img src="/images/search.png" class="search_img">
+                </a>
             </button>
         </div>
-        <% } else if (form=="class" || form=="interest" ) { %>
+        <% } else if (form=="class") { %>
             <div class="search_box">
                 <select class="select1">
                     <option selected>학수번호</option>
@@ -45,10 +47,29 @@
                 <div class="input2">
                     <input type="text" class="form-control" placeholder="검색어를 입력하세요">
                     <button class="button" type="button">
-                        <img src="/images/search.png" class="search_img">
+                        <a href="#">
+                            <img src="/images/search.png" class="search_img">
+                        </a>
                     </button>
                 </div>
             </div>
-        <% } %>
+            <% } else if (form=="interest" ) { %>
+                <div class="search_box">
+                    <select class="select1_">
+                        <option selected>분야</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                    <div class="input2">
+                        <input type="text" class="form-control" placeholder="검색어를 입력하세요">
+                        <button class="button" type="button">
+                            <a href="#">
+                                <img src="/images/search.png" class="search_img">
+                            </a>
+                        </button>
+                    </div>
+                </div>
+            <% } %>
 </body>
 </html>

@@ -4,33 +4,42 @@
     display: flex;
     background: #000538;
     border-top: 1.5px solid #424779;
+    align-items: center;
+    justify-content: space-between;
 }
 .navp {
     font-size: 15px;
     line-height: 100%;
-    text-align: center;
     letter-spacing: 0.1em;
     background: #000538;
     display: flex;
+    list-style: none;
+    height: 100%;
+    vertical-align: middle;
+    align-items: center;
+    padding: 0px;
+    margin: 0px;
 }
-.a {
+.navp li{
+    display: inline-block;
+    padding: 0px 55px;
+    text-align: center;
+}
+
+.navp li a{
     text-decoration: none;
-    background: #000538;
-}
-.all {
-    margin-left: 40px;
     color: #FFFFFF;
 }
-.class {
-    margin-left: 76px;
+
+.new_post {
     color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    padding: 0px 70px;
 }
-.interest {
-    margin-left: 76px;
+
+.new_post a {
+    text-decoration: none;
     color: #FFFFFF;
-}
-.new {
-    position: absolute;
-    right: 30px;
-    color: #FFFFFF;
+    letter-spacing: 0.1em;
 }

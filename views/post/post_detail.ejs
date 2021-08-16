@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="/stylesheets/reset.css">
     <link rel="stylesheet" href="/stylesheets/header.css">
     <link rel="stylesheet" href="/stylesheets/post_detail.css">
+    <link rel="stylesheet" href="/stylesheets/nav.css">
     <meta charset="UTF-8">
     <title>Document</title>
 </head>
@@ -14,9 +15,11 @@
 
     <% if(nav=="program"){ %>
         <%- include("../page/program_nav") %>
-     <% } else{ %>
-         <%- include("../page/nav") %>
-     <% } %>
+    <% } else if (nav=="project") { %>
+        <%- include("../page/project_nav") %>
+    <% } else if (nav=="study"){ %>
+        <%- include("../page/study_nav") %>
+    <% } %>
      
         <main id="detail_main">
 
