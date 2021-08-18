@@ -21,7 +21,13 @@
         {
             "title": "express 공부 모집",
             "description": "A to Z",
-            "current_member": 2,
+            "current_member": 4,
+            "max_member": 4
+        },
+        {
+            "title": "express 공부 모집",
+            "description": "A to Z",
+            "current_member": 3,
             "max_member": 4
         },
         {
@@ -33,31 +39,25 @@
         {
             "title": "express 공부 모집",
             "description": "A to Z",
-            "current_member": 2,
+            "current_member": 1,
             "max_member": 4
         },
         {
             "title": "express 공부 모집",
             "description": "A to Z",
-            "current_member": 2,
+            "current_member": 0,
             "max_member": 4
         },
         {
             "title": "express 공부 모집",
             "description": "A to Z",
-            "current_member": 2,
+            "current_member": 0,
             "max_member": 4
         },
         {
             "title": "express 공부 모집",
             "description": "A to Z",
-            "current_member": 2,
-            "max_member": 4
-        },
-        {
-            "title": "express 공부 모집",
-            "description": "A to Z",
-            "current_member": 2,
+            "current_member": 1,
             "max_member": 4
         }
     ],

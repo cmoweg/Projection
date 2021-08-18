@@ -33,17 +33,17 @@
             </ul>
         </div>
         <div class="registration">
-            <%# if(!isLogin) { %>
+            <% if(!authenticate) { %>
                 <span class="nav__registration"><a href="/account/login">로그인</a>/<a href="/account/registration">회원가입
                     </a></span>
-                <% /* } else { %>
+                <% } else { %>
                     <a href="#">
-                        <img src="images/icon_msg.png" alt="icon_msg">
+                        <img src="/images/icon_msg.png" alt="icon_msg">
                     </a>
-                    <a href="/profile">
-                        <img src="images/icon_user.png" alt="icon_user">
+                    <a href="/profile/my">
+                        <img src="/images/icon_user.png" alt="icon_user">
                     </a>
-                    <% } */%>
+                    <% } %>
 
         </div>
     </nav>

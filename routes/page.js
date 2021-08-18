@@ -34,7 +34,7 @@ router.get('/program/:form', function (req, res, next) {
   let form = req.params.form;
   console.log(form);
   var obj = JSON.parse(fs.readFileSync('data/post_list.json', 'utf8'));
-  res.render('page/program', { "form": form, "post_list": obj });
+  res.render('page/program', { "form": form, "post_list": obj, "authenticate": req.session.authenticate });
 })
 
 module.exports = router;
