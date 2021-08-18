@@ -119,4 +119,4 @@ dist
 
 
 # config
-config/
+.config/
