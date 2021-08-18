@@ -60,6 +60,14 @@
     left: -50px;
     top: -150px;
 }
+.button_class {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 0;
+    outline: 0;
+    background: none;
+}
 .edit {
     letter-spacing: 0.3em;
     font-size: 20px;
