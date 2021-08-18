@@ -2,6 +2,19 @@ var express = require('express');
 var router = express.Router();
 var fs = require('fs');
 
+let mysql = require('mysql'); // mysql 모듈 추가
+
+
+let conn = mysql.createConnection({ // DB 정보 추가
+  host     : 'localhost',
+  user     : 'root',
+  password : 'qlenfrlsms99',
+  database : 'oyr_DB'
+});
+
+
+
+
 router.get('/project', function (req, res, next) {
   res.redirect('/page/project/all');
 });
@@ -104,5 +117,51 @@ router.get('/:nav/:form/post/:id', function (req, res, next) {
     }
   }
 
-  res.render('post/post_detail', { "nav": nav, "form": form, "class_info": class_info, "subject": subject, "position": position, "isWriter": false });
+
+  
+    res.render('post/post_detail', { "nav": nav, "form": form, "class_info": class_info, "subject": subject, "position": position, "isWriter": false });
+  })
+
+
+  
+router.get('/add', function(req, res){
+  let sql="INSERT INTO user (email, password, nickname, major, year, position, phone, is_public, skill, portfolio, project, award, license, introduction) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+  let params = ['이_메-일@naver.com', '비밀번호', '별명', '전공',3,'포지션','010 1234 1234', true, '스킬','포트폴리오 링크', '프로젝트','수상내역','자격증','자기소개'];
+  conn.query(sql, params, function(err, rows, fields){
+    if(err){
+      console.log(err);
+      res.status(500).send('Internal Server Error');
+    }
+    else{
+      res.send(rows);
+    }
+  })
+})
+
+router.get('/show', function(req, res){
+  let sql='SELECT * from user';
+
+  conn.query(sql, function(err, rows, fields){
+    if(err){
+      console.log(err);
+      res.status(500).send('Internal Server Error');
+    }
+    else{
+      res.send(rows);
+    }
+  })
+})
+
+router.get('/add_', function(req, res){
+  let sql="INSERT INTO post (author_id, category, public, recruit, create_date, title, short, class_info, subject, current_num, recruit_num, recruit_start_date,recruit_end_date, position, start_date, end_date, TBD, goal, attachment, description, image) VALUES(?, ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+  let params = [3,0, true, true, '2017-12-21 12:16:14', '제목', '한줄', '학수번호001', '분야',3, 4,'2017-12-21','2017-12-21','포지션','2017-12-21','2017-12-21', true,'목표','첨부파일','상세설명','이미지'];
+  conn.query(sql, params, function(err, rows, fields){
+    if(err){
+      console.log(err);
+      res.status(500).send('Internal Server Error');
+    }
+    else{
+      res.send(rows);
+    }
+  })
 })
