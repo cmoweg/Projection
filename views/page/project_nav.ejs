@@ -4,17 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>study</title>
+    <title>project</title>
     <link rel='stylesheet' href='/stylesheets/reset.css' />
     <link rel="stylesheet" href="/stylesheets/header.css">
     <link rel="stylesheet" href="/stylesheets/nav.css">
 </head>
 <body>
     <nav class="nav">
-        <p><a href="/study/all" class="all navp a">전체</a></p>
-        <p><a href="/study/class" class="class navp a">수업</a></p>
-        <p><a href="/study/interest" class="interest navp a">관심</a></p>
-        <p><a href="/study/<%=form %>/post" class="new navp a">새로운 글 쓰기</a></p>
+        <ul class="navp">
+            <li>
+                <a href="/page/project/all">전체</a>
+            </li>
+            <li>
+                <a href="/page/project/class">수업</a>
+            </li>
+            <li>
+                <a href="/page/project/interest">관심</a>
+            </li>
+        </ul>
+        <div class="new_post">
+            <a href="/page/project/<%=form %>/post">새로운 글 쓰기</a>
+        </div>
     </nav>
         <style>
             .<%=form%> {

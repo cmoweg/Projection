@@ -8,18 +8,34 @@
     <title>program</title>
     <link rel='stylesheet' href='/stylesheets/reset.css' />
     <link rel="stylesheet" href="/stylesheets/header.css">
-    <link rel="stylesheet" href="/stylesheets/program_nav.css">
+    <link rel="stylesheet" href="/stylesheets/nav.css">
 </head>
 
 <body>
         <nav class="nav">
-            <p><a href="/program/all" class="all navp a">전체</a></p>
-            <p><a href="/program/tutoring" class="tutoring navp a">튜터링</a></p>
-            <p><a href="/program/contest" class="contest navp a">공모전/창업프로그램</a></p>
-            <p><a href="/program/creative_semester" class="creative_semester navp a">창의학기제</a></p>
-            <p><a href="/program/creative_community" class="creative_community navp a">창의학습공동체</a></p>
-            <p><a href="/program/hackathon" class="hackathon navp a">해커톤</a></p>
-            <p><a href="/program/<%=form %>/post" class="new navp a">새로운 글 쓰기</a></p>
+            <ul class="navp">
+                <li>
+                    <a href="/page/program/all">전체</a>
+                </li>
+                <li>
+                    <a href="/page/program/tutoring">튜터링</a>
+                </li>
+                <li>
+                    <a href="/page/program/contest">공모전/창업프로그램</a>
+                </li>
+                <li>
+                    <a href="/page/program/creative_semester">창의학기제</a>
+                </li>
+                <li>
+                    <a href="/page/program/creative_community">창의학습공동체</a>
+                </li>
+                <li>
+                    <a href="/page/program/hackathon">해커톤</a>
+                </li>
+            </ul>
+            <div class="new_post">
+                <a href="/page/program/<%=form %>/post">새로운 글 쓰기</a>
+            </div>
         </nav>
 
         <style>
@@ -27,6 +43,7 @@
                 color: #F27357;
             }
         </style>
+        
 </body>
 
 </html>

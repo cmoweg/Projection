@@ -17,21 +17,24 @@
     <%- include("../common/header") %>
   
     <main class="profile_main">
+      <form action="edit" method="GET">
         <div class="pf1">
             <p class="pf">PROFILE</p>
             <img src="/images/profile.png" class="pf_image">
-            <img src="/images/camera_edit.png" class="camera_image">
-            <p><a href="my" class="edit">수정완료</a></p>
-          </div>
+            <a href="#">
+              <img src="/images/camera_edit.png" class="camera_image">
+            </a>
+            <p><button class="button_class" type="submit"><a href="my" class="edit">수정완료</a></button></p>
+        </div>
       
           <div class="pf2">
               <div class="div_detail">
                   <p class="info_font">닉네임</p>
-                  <input class="pf_input">
+                  <input class="pf_input" name="nickname" id="nickname">
               </div>
               <div class="div_detail">
-                    <p class="info_font info_letter-spacing">학과</p>
-                    <select class="select1">
+                    <p class="info_font info_letter-spacing" name="major" id="major">학과</p>
+                    <select class="select1" name="major">
                         <option selected value="1">선택</option>
                         <option value="2">컴공</option>
                         <option value="3">소웨</option>
@@ -40,7 +43,7 @@
               </div>
               <div class="div_detail">
                   <p class="info_font info_letter-spacing">학년</p>
-                    <select class="select1">
+                    <select class="select1" name="year">
                         <option selected value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -50,36 +53,38 @@
               </div>
               <div class="div_detail">
                   <p class="info_font">포지션</p>
-                  <input class="pf_input">   
+                  <input class="pf_input" name="position" id="position">   
               </div>
               <div class="div_detail">
                   <p class="info_font">연락처</p>
-                  <input class="pf_input" type="tel">
-                  <input type="radio" name="check" value="yes" checked class="check">공개
-                  <input type="radio" name="check" value="no" class="check">비공개
+                  <input class="pf_input" type="tel" name="phone" id="phone">
+                  <input type="radio" name="is_public" value="yes" checked class="check">공개
+                  <input type="radio" name="is_public" value="no" class="check">비공개
               </div>
       
               <hr class="hr">
       
               <div class="sk_font2">SKILLS
-                <textarea class="detail_input"></textarea>
+                <textarea class="detail_input" name="skill" id="skill"></textarea>
               </div>
               <div class="sk_font2">포트폴리오
-                <textarea class="detail_input"></textarea>
+                <textarea class="detail_input" name="portfolio" id="portfolio"></textarea>
               </div>
               <div class="sk_font2">팀 프로젝트
-                <textarea class="detail_input"></textarea>
+                <textarea class="detail_input" name="project" id="project"></textarea>
               </div>
               <div class="sk_font2">수상 이력
-                <textarea class="detail_input"></textarea>
+                <textarea class="detail_input" name="award" id="award"></textarea>
               </div>
               <div class="sk_font2">자격증
-                <textarea class="detail_input"></textarea>
+                <textarea class="detail_input" name="license" id="license"></textarea>
               </div>
               <div class="sk_font2">자기소개
-                <textarea class="detail_input"></textarea>
+                <textarea class="detail_input" name="introduction" id="introduction"></textarea>
               </div>
-            </div>
+              
+          </div>
+      </form>
     </main>
   
   

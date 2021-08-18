@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>study</title>
+    <link rel='stylesheet' href='/stylesheets/reset.css' />
+    <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/nav.css">
+</head>
+<body>
+    <nav class="nav">
+        <ul class="navp">
+            <li>
+                <a href="/page/study/all">전체</a>
+            </li>
+            <li>
+                <a href="/page/study/class">수업</a>
+            </li>
+            <li>
+                <a href="/page/study/interest">관심</a>
+            </li>
+        </ul>
+        <div class="new_post">
+            <a href="/page/study/<%=form %>/post">새로운 글 쓰기</a>
+        </div>
+    </nav>
+        <style>
+            .<%=form%> {
+                color: #F27357;
+            }
+        </style>
+</body>
+</html>
