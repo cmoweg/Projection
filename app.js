@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require("express-session");
 var MySQLStore = require("express-mysql-session")(session);
-
+const dbconfig = require('./config/mysql.js');
 
 
 
@@ -32,13 +32,7 @@ app.use(session({
   secret: 'ABCD1234ABAB!@',
   resave: false,
   saveUninitialized: true,
-  store: new MySQLStore({
-    host: 'localhost',
-    port: 3306,
-    user: 'root',
-    password: '111111',
-    database: 'projection_db'
-  })
+  store: new MySQLStore(dbconfig)
 }));
 
 
