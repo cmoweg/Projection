@@ -11,12 +11,4 @@ router.get('/', function (req, res, next) {
   res.render('index/index', { "post_intro": obj, "isLogin": false });
 });
 
-exports.index = function(req, res){
- conn.query('select * from Test', function (err, rows, fields) {
-  if (err) throw err; 
-  console.log(rows);
-  res.render('index', { title: 'select * from Test -> rows.length : ' + rows.length });
- });
-};
-
 module.exports = router;
