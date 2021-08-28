@@ -1,5 +1,9 @@
 var express = require('express');
 const mysql = require('mysql');
+const { smtpTransport, generateRandom } = require('../config/email');
+
+
+
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
@@ -45,6 +49,34 @@ router.post('/login', function (req, res, next) {
 router.get('/registration', function (req, res, next) {
   res.render('reg/registration', { "isLogin": false, "authenticate": req.session.authenticate });
 })
+
+router.post('/registration', function (req, res, next) {
+
+
+  const number = generateRandom(111111, 999999)
+  const sendEmail = "lhd0426@sju.ac.kr" // req.body;
+  console.log(sendEmail)
+  const mailOption = {
+    from: "dtddla@naver.com",
+    to: sendEmail,
+    subject: "[Projection]가입 인증 번호",
+    text: "오른쪽 숫자 6자리를 입력해주세요 : " + number
+  };
+
+  smtpTransport.sendMail(mailOption, function (error, info) {
+    if (error) {
+      console.log('에러 ' + error);
+    }
+    else {
+      console.log('전송 완료 ' + info.response);
+      res.status(200).send({ message: "Mail send", message_id: info.message_id })
+
+    }
+  });
+  // res.render('reg/registration', { "isLogin": false, "authenticate": req.session.authenticate });
+})
+
+
 
 router.get('/logout', function (req, res, next) {
   // delete req.session.displayName;

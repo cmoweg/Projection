@@ -19,7 +19,7 @@
 }
 
 .login{
-    width: 100%;
+    width: 80%;
 }
 
 .login > input, .btn_login{
@@ -37,6 +37,9 @@
 .btn_login{
     background-color: #000538;
     color: white;
+    width: 50%;
+    margin: 0 auto;
+    display: block;
 }
 
 .spliter{
@@ -50,4 +53,20 @@
     width: 40px;
     height: 40px;
     margin-bottom: 20px;
+}
+
+.form{
+    width: 100%;
+    display: flex;
+}
+
+.form_validation{
+    width: 20%;
+    margin-left: 20px;
+}
+.send_new_pw{
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    cursor: pointer;
 }

@@ -36,12 +36,31 @@ html, body{
 .recent_post_slides{
     width: 80vw;
     margin: 50px auto;
+    position: relative;
+
+}
+
+.post_category_head{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
 }
 
 .post_category_title{
     font-size: 40px;
 }
 
+.more_post{
+    text-decoration: none;
+
+    border-radius: 15px;
+    padding: 10px;
+    line-height: normal;
+}
+
+.more_post:hover{
+    background-color: #0088a9;
+}
 
 .slide_wrap{
     display: flex;
@@ -97,4 +116,44 @@ html, body{
 .post_info{
     display: flex;
     justify-content: space-between;
+}
+
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+
+
+.slideLeft, .slideRight {
+    border: none;
+    background-color: transparent;
+    font-family: inherit;
+    padding: 0;
+    cursor: pointer;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: calc(50% - 25px);
+}
+
+.slideLeft{
+    left: -50px;
+}
+
+.slideRight{
+    right: -50px;
 }

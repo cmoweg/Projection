@@ -3,8 +3,8 @@ var router = express.Router();
 
 
 router.get('/edit', function (req, res, next) {
-  var context = require('../config/context')
-  res.render('profile/profile_edit.html', context);
+
+  res.render('profile/profile_edit.html', { "authenticate": req.session.authenticate });
 });
 
 router.get('/other', function (req, res, next) {
@@ -12,9 +12,9 @@ router.get('/other', function (req, res, next) {
 });
 
 router.get('/my', function (req, res, next) {
-  var context = require('../config/context')
 
-  res.render('profile/profile.html', context);
+
+  res.render('profile/profile.html', { "authenticate": req.session.authenticate });
 });
 
 module.exports = router;

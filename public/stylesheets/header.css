@@ -65,6 +65,16 @@ header a{
     color: white;
 }
 
+.registration > a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.registration img{
+    height: 50%;
+}
+
 .dropdown-content {
     display: none;
     position:absolute;
@@ -91,13 +101,19 @@ header a{
 }
 
 .dropdown-content li{
-    margin: 0px 0px 40px;
+    margin-bottom: 20px;
+    border-radius: 15px;
     text-align: center;
+}
+.dropdown-content li:hover{
+    background-color: #0088a9;
 }
 
 .dropdown-content a{
     color: black;
-    margin: 40px 20px;
+    padding: 20px 0px;
+    display: block;
+    width: 100%;
 }
 
 
@@ -115,8 +131,50 @@ header a{
     height: 100%;
     display: flex;
     align-items: center;
+
 }
 .registration > a{
     width: 100%;
     height: 100%;
+}
+
+.icon_user {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.icon_user > a{
+    display: block;
+
+}
+
+.icon_user:hover > .dropdown_category__account{
+    display: inline;
+
+}
+
+
+.dropdown_category__account{
+    display: none;
+    float: right;
+    position:absolute;
+    top: 9vh;
+    list-style: none;
+    /* padding-inline-start: 20px; */
+    background-color: #C4C4C4;
+    z-index: 100;
+    margin: 0px;
+    padding: 0px 10px;
+}
+
+.dropdown_category__account:hover {
+    display: inline;
+}
+
+
+.dropdown_category__account li{
+    margin: 20px 0px;
+    text-align: center;
 }

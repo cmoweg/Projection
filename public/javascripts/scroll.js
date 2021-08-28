@@ -6,7 +6,7 @@ window.onload = function () {
 
     for (var i = 0; i < buttonRights.length; i++) {
         buttonRights[i].addEventListener("click", e => {
-            const slide = e.target.nextElementSibling;
+            const slide = e.target.parentElement;
             slide.scrollLeft += (slide.clientWidth / 4);
         })
     }
@@ -15,7 +15,7 @@ window.onload = function () {
 
     for (var i = 0; i < buttonLefts.length; i++) {
         buttonLefts[i].addEventListener("click", e => {
-            const slide = e.target.nextElementSibling.nextElementSibling;
+            const slide = e.target.parentElement;
             slide.scrollLeft -= (slide.clientWidth / 4);
         })
     }
