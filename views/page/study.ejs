@@ -20,60 +20,58 @@
     <%- include("study_nav") %>
 
     <% if(form == "all"){ %>
-        <div class="input1">
-            <input type="text" class="form-control" placeholder="검색어를 입력하세요.">
-            <button class="button" type="button">
-                <a href="#">
-                    <img src="/images/search.png" class="search_img">
-                </a>
-            </button>
-        </div>
+        <form action="/page/study_search/all" method="GET">
+           <div class="input1">
+                <input type="text" class="form-control" name="search" placeholder="검색어를 입력하세요.">
+                <button class="button" type="submit" id="search">
+                        <img src="/images/search.png" class="search_img">
+                </button>
+            </div> 
+        </form>
         <% } else if (form=="class") { %>
-            <div class="search_box">
-                <select class="select1">
-                    <option selected>학수번호</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select>
-                <select class="select2">
-                    <option selected>교수명</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select>
-                <select class="select2">
-                    <option selected>분반</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select>
-                <div class="input2">
-                    <input type="text" class="form-control" placeholder="검색어를 입력하세요">
-                    <button class="button" type="button">
-                        <a href="#">
-                            <img src="/images/search.png" class="search_img">
-                        </a>
-                    </button>
-                </div>
-            </div>
-            <% } else if (form=="interest" ) { %>
+            <form action="/page/study_search/class" method="GET">
                 <div class="search_box">
-                    <select class="select1_">
-                        <option selected>분야</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                    </select>
+                    <input placeholder="학수번호" class="select1" name="num">
+                    <input placeholder="분반" class="select2" name="div">
+
                     <div class="input2">
-                        <input type="text" class="form-control" placeholder="검색어를 입력하세요">
-                        <button class="button" type="button">
-                            <a href="#">
-                                <img src="/images/search.png" class="search_img">
-                            </a>
+                        <input type="text" class="form-control" name="search" placeholder="검색어를 입력하세요">
+                        <button class="button" type="submit">
+                            <img src="/images/search.png" class="search_img">
                         </button>
                     </div>
                 </div>
+            </form>
+            
+            <% } else if (form=="interest" ) { %>
+                <form action="/page/study_search/interest" method="GET">
+                    <div class="search_box">
+                        <select class="select1_" name="select">
+                            <option selected value="0">분야</option>
+                            <option value="1">UI/UX 기획</option>
+                            <option value="2">게임기획</option>
+                            <option value="3">프로젝트 매니저</option>
+                            <option value="4">하드웨어(제품) 기획</option>
+                            <option value="5">그래픽디자인</option>
+                            <option value="6">UI/UX 디자인</option>
+                            <option value="7">3D 디자인</option>
+                            <option value="8">하드웨어(제품) 디자인</option>
+                            <option value="9">IOS</option>
+                            <option value="10">안드로이드</option>
+                            <option value="11">웹프론트엔드</option>
+                            <option value="12">웹퍼블리셔</option>
+                            <option value="13">크로스플랫폼</option>
+                            <option value="14">웹 서버</option>
+                        </select>
+                        <div class="input2">
+                            <input type="text" class="form-control" name="search" placeholder="검색어를 입력하세요">
+                            <button class="button" type="submit">
+                                <img src="/images/search.png" class="search_img">
+                            </button>
+                        </div>
+                    </div> 
+                </form>
+                
             <% } %>
             <%- include("post_list") %>
 </body>

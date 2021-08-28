@@ -6,6 +6,7 @@
     "start": "supervisor ./bin/www"
   },
   "dependencies": {
+    "ajax": "0.0.4",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
@@ -16,8 +17,14 @@
     "express-mysql-session": "^2.1.6",
     "express-session": "^1.17.2",
     "http-errors": "~1.6.3",
+    "jquery": "^3.6.0",
     "morgan": "~1.9.1",
     "mysql": "^2.18.1",
-    "supervisor": "^0.12.0"
+    "querystring": "^0.2.1",
+    "read-excel-file": "^5.2.8",
+    "sanitize-html": "^2.4.0",
+    "sequelize": "^6.6.5",
+    "supervisor": "^0.12.0",
+    "url": "^0.11.0"
   }
 }

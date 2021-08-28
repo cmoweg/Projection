@@ -15,9 +15,11 @@ const dbconfig = require('../config/mysql.js');
 let conn = mysql.createConnection( // DB 정보 추가
   dbconfig
 );
+var http = require('http');
 
-
-
+const sequelize = require("sequelize");
+var url = require('url');
+var querystring = require('querystring');
 
 router.get('/project', function (req, res, next) {
   res.redirect('/page/project/all');
@@ -29,7 +31,8 @@ router.get('/project/:form', function (req, res, next) {
   var obj = JSON.parse(fs.readFileSync('data/post_list.json', 'utf8'));
 
   res.render('page/project', { "form": form, "post_list": obj ,"authenticate": req.session.authenticate});
-})
+
+}) 
 
 router.get('/study', function (req, res, next) {
   res.redirect('/page/study/all');
@@ -41,6 +44,7 @@ router.get('/study/:form', function (req, res, next) {
   var obj = JSON.parse(fs.readFileSync('data/post_list.json', 'utf8'));
 
   res.render('page/study', { "form": form, "post_list": obj ,"authenticate": req.session.authenticate});
+
 })
 
 router.get('/program', function (req, res, next) {
@@ -55,8 +59,6 @@ router.get('/program/:form', function (req, res, next) {
 })
 
 module.exports = router;
-
-
 
 
 // 글 작성
@@ -208,4 +210,213 @@ router.get('/add_', function(req, res){
       res.send(rows);
     }
   })
+})
+
+
+
+//프로그램 검색
+router.get('/program_search/:form', function(req, res) {
+  console.log('--- log start ---');
+
+  var parsedUrl = url.parse(req.url);
+  console.log(parsedUrl);
+
+  var parsedQuery = querystring.parse(parsedUrl.query,'&','=');
+  var result = parsedQuery.search;
+  console.log(result);
+  console.log(parsedQuery);
+
+  var sql = "SELECT * FROM post WHERE title LIKE '%result%'";
+  var params = result;
+  conn.query(sql, params, (err, rows, fields) => {
+    if(err) {
+      console.log(err);
+    } else {
+      console.log('rows', rows);
+      return res.json( {
+        title: result
+      });
+    }
+  });
+
+  console.log('--- log end ---');
+})
+
+//프로젝트 검색
+router.get('/project_search/all', function(req, res) {
+  console.log('--- log start ---');
+
+  var parsedUrl = url.parse(req.url);
+  console.log(parsedUrl);
+
+  var parsedQuery = querystring.parse(parsedUrl.query,'&','=');
+  var result = parsedQuery.search;
+  console.log(result);
+  console.log(parsedQuery);
+
+  var sql = "SELECT * FROM post WHERE title LIKE '%result%'";
+  var params = result;
+  conn.query(sql, params, (err, rows, fields) => {
+    if(err) {
+      console.log(err);
+    } else {
+      console.log('rows', rows);
+      return res.json( {
+        title: result
+      });
+    }
+  });
+
+  console.log('--- log end ---');
+})
+
+router.get('/project_search/class', function(req, res) {
+  console.log('--- log start ---');
+
+  var parsedUrl = url.parse(req.url);
+  console.log(parsedUrl);
+
+  var parsedQuery = querystring.parse(parsedUrl.query,'&','=');
+  var result1 = parsedQuery.num;
+  var result2 = parsedQuery.div;
+  var result = result1 + result2;
+  var search = parsedQuery.search;
+  console.log(result1);
+  console.log(result2);
+  console.log(search);
+  console.log(parsedQuery);
+
+  var sql = "SELECT * FROM post WHERE class_info_num =? AND class_info_div =? AND title =?";
+  conn.query(sql, [result1, result2, `%search%`], (err, rows, fields) => {
+    if(err) {
+      console.log(err);
+    } else {
+      console.log('rows', rows);
+      return res.json( {
+        class_info_num: result1,
+        class_info_div: result2,
+        title: search
+      });
+    }
+  });
+  console.log('--- log end ---');
+})
+
+router.get('/project_search/interest', function(req, res) {
+  console.log('--- log start ---');
+
+  var parsedUrl = url.parse(req.url);
+  console.log(parsedUrl);
+
+  var parsedQuery = querystring.parse(parsedUrl.query,'&','=');
+  var select = parsedQuery.select;
+  var search = parsedQuery.search;
+  console.log(select);
+  console.log(search);
+  console.log(parsedQuery);
+
+  var sql = "SELECT * FROM post WHERE subject =? AND title =?";
+  conn.query(sql, [select, `%search%`], (err, rows, fields) => {
+    if(err) {
+      console.log(err);
+    } else {
+      console.log('rows', rows);
+      return res.json( {
+        subject: select,
+        title: search
+      });
+    }
+  });
+
+  console.log('--- log end ---');
+})
+
+//스터디 검색
+router.get('/study_search/all', function(req, res) {
+  console.log('--- log start ---');
+
+  var parsedUrl = url.parse(req.url);
+  console.log(parsedUrl);
+
+  var parsedQuery = querystring.parse(parsedUrl.query,'&','=');
+  var result = parsedQuery.search;
+  console.log(result);
+  console.log(parsedQuery);
+
+  var sql = "SELECT * FROM post WHERE title LIKE '%result%'";
+  var params = result;
+  conn.query(sql, params, (err, rows, fields) => {
+    if(err) {
+      console.log(err);
+    } else {
+      console.log('rows', rows);
+      return res.json( {
+        title: result
+      });
+    }
+  });
+
+  console.log('--- log end ---');
+})
+
+router.get('/study_search/class', function(req, res) {
+  console.log('--- log start ---');
+
+  var parsedUrl = url.parse(req.url);
+  console.log(parsedUrl);
+
+  var parsedQuery = querystring.parse(parsedUrl.query,'&','=');
+  var result1 = parsedQuery.num;
+  var result2 = parsedQuery.div;
+  var result = result1 + result2;
+  var search = parsedQuery.search;
+  console.log(result1);
+  console.log(result2);
+  console.log(search);
+  console.log(parsedQuery);
+
+  var sql = "SELECT * FROM post WHERE class_info_num =? AND class_info_div =? AND title =?";
+  conn.query(sql, [result1, result2, `%search%`], (err, rows, fields) => {
+    if(err) {
+      console.log(err);
+    } else {
+      console.log('rows', rows);
+      return res.json( {
+        class_info_num: result1,
+        class_info_div: result2,
+        title: search
+      });
+    }
+  });
+
+  console.log('--- log end ---');
+})
+
+router.get('/study_search/interest', function(req, res) {
+  console.log('--- log start ---');
+
+  var parsedUrl = url.parse(req.url);
+  console.log(parsedUrl);
+
+  var parsedQuery = querystring.parse(parsedUrl.query,'&','=');
+  var select = parsedQuery.select;
+  var search = parsedQuery.search;
+  console.log(select);
+  console.log(search);
+  console.log(parsedQuery);
+
+  var sql = "SELECT * FROM post WHERE subject =? AND title =?";
+  conn.query(sql, [select, `%search%`], (err, rows, fields) => {
+    if(err) {
+      console.log(err);
+    } else {
+      console.log('rows', rows);
+      return res.json( {
+        subject: select,
+        title: search
+      });
+    }
+  });
+  
+  console.log('--- log end ---');
 })

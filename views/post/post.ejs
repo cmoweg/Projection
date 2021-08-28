@@ -18,7 +18,7 @@
         <%- include("../page/program_nav") %>
     <% } else if (nav=="project") { %>
         <%- include("../page/project_nav") %>
-    <% } else{ %>
+    <% } else if (nav=="study") { %>
         <%- include("../page/study_nav") %>
     <% } %>
     <form action="/page/<%=nav %>/<%=form %>/post/1" method="post"></form>
