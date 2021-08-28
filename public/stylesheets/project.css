@@ -56,22 +56,16 @@
 }
 
 .select1 {
-    cursor: pointer;
     width: 355px;
-    height: 43px;
+    height: 35px;
     padding: .375rem 2.25rem .375rem .75rem;
-    color: #212529;
-    background-color: #fff;
-    background-image: url('/images/select.svg');
-    background-repeat: no-repeat;
-    background-position: right .75rem center;
-    background-size: 16px 12px;
     border: 1px solid;
     border-radius: .25rem;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     margin: 50px 0 0 75px;
+    margin-left: 110px;
 }
 .select1_ {
     cursor: pointer;
@@ -92,16 +86,9 @@
     margin: 50px auto 0;
 }
 .select2 {
-    cursor: pointer;
     width: 160px;
-    height: 43px;
+    height: 35px;
     padding: .375rem 2.25rem .375rem .75rem;
-    color: #212529;
-    background-color: #fff;
-    background-image: url('/images/select.svg');
-    background-repeat: no-repeat;
-    background-position: right .75rem center;
-    background-size: 16px 12px;
     border: 1px solid;
     border-radius: .25rem;
     -webkit-appearance: none;
