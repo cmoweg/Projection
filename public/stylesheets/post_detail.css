@@ -59,16 +59,21 @@
     margin-left:5px;
     vertical-align:middle;
 }
-#btn {
+.btn {
     width: 100%;
     padding: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
+    margin-bottom: 5px;
     font-weight: bold;
 }
 .blue{
     border: 3px solid blue;
     color: blue;
+}
+.red{
+    border: 3px solid red;
+    color: red;
 }
 
 .list{
