@@ -18,10 +18,11 @@
         <%- include("../page/program_nav") %>
     <% } else if (nav=="project") { %>
         <%- include("../page/project_nav") %>
-    <% } else{ %>
+    <% } else if (nav=="study") { %>
         <%- include("../page/study_nav") %>
     <% } %>
-
+    <form action="/page/<%=nav %>/<%=form %>/post/1" method="post"></form>
+       
         <main id="post_main">
 
             <div>
@@ -78,7 +79,7 @@
                     </p>
                                       
                     <p id="file" class="contents">                                         
-                        파일 첨부 <input type="file" name="" id="">                               
+                        파일 첨부 <input type="text" name="" id="">                               
                     </p>
                                       
                     <p id="description" class="contents">                                         
@@ -88,21 +89,25 @@
                     </p>
                                      
                     <p id="image" class="contents">                                         
-                        모집 공고 이미지 선택 <br>                                        
-                        <input type="file" name="" id="">                                      
+                        모집 공고 이미지 선택 <input type="text" name="" id="">                                      
                     </p>
             </div>
             <button id="submit" class="show blue">작성완료</button>
+        </form>
 
+         <!--
             <div class="background">
                 <div class="popup">
                     <p id="x" class="close">X</p>
                     <br>
                     <p id="notice">글 게시 후 모집 기간, 모집 현황을 제외한 삭제, 수정이 불가능합니다.</p>
-                    <button id="btn" class="show post blue">게시</button>
+                    <form action="/page/<%=nav %>/<%=form %>/post/1" method="post">
+                        <button id="btn" class="show post blue redirect">게시</button>
+                    </form>
                     <button id="btn" class="close cancel red">취소</button>
                 </div>
             </div>
+            --> 
 
         </main>
 

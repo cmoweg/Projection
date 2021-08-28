@@ -25,14 +25,6 @@ html, body{
 
 }
 
-.search_bar > input{
-    width: 100%;
-    margin-top: 30px;
-    height: 35px;
-}
-
-
-
 .recent_post_slides{
     width: 80vw;
     margin: 50px auto;
@@ -156,4 +148,48 @@ html, body{
 
 .slideRight{
     right: -50px;
+}
+
+.input1 {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    width: 540px;
+    height: 43px;
+
+    border-radius: 100%;
+    background: #FFFFFF;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    padding: .375rem .95rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #fff;
+    border: 1px solid;
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+    position: relative;
+    flex: 1 1 auto;
+    border-right-style: none;
+}
+.form-control:focus {outline:none;}
+
+.button {
+    cursor: pointer;
+    background-color: white;
+    padding: .375rem .75rem;
+    border-top-right-radius: 100%;
+    border-bottom-right-radius: 100%;
+    position: relative;
+    border: 1px solid;
+    border-left-style: none;
+}
+.search_img {
+    width: 30px;
+    height: 30px;
 }
