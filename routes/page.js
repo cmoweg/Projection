@@ -3,9 +3,7 @@ var router = express.Router();
 var fs = require('fs');
 var bodyParser = require('body-parser');
 
-router.use(express.json());
-
-router.use(express.urlencoded( {extended : false } ));
+router.use(bodyParser.urlencoded({ extended: false }));
 
 
 
@@ -65,7 +63,6 @@ module.exports = router;
 router.get('/:nav/:form/post/write', function (req, res, next) {
   let nav = req.params.nav;
   let form = req.params.form;
-  console.log(nav)
   let class_info = true;
   let subject = true;
   let position = true;
@@ -98,37 +95,110 @@ router.get('/:nav/:form/post/write', function (req, res, next) {
 router.post('/:nav/:form/post/:id', function (req, res, next) {
   let nav = req.params.nav;
   let form = req.params.form;
-  let class_info = true;
-  let subject = true;
-  let position = true;
+  let class_info_ = true;
+  let subject_ = true;
+  let position_ = true;
 
   if (nav == "project" && form == "interest") {
-    class_info = false;
+    class_info_ = false;
   }
   else if (nav == "study") {
-    position = false;
+    position_ = false;
 
     if (form == "interest") {
-      class_info = false;
+      class_info_ = false;
     }
   }
   else if (nav == "program") {
     if (form == "tutoring") {
-      subject = false;
+      subject_ = false;
     }
     else if (form == "contest" || form == "creative_semester" || form == "creative_community") {
-      class_info = false;
+      class_info_ = false;
     }
   }
 
-  let title = req.body.title;
-  console.log('제목: '+title);
+  var category;
+  if(nav == "project"){
+    if(form == "class"){
+      category=0;
+    }
+    else if(form == "interest"){
+      category = 1;
+    }
+  }
+  else if(nav == "study"){
+    if(form == "class"){
+      category=2;
+    }
+    else if(form == "interest"){
+      category = 3;
+    }
+  }
+  else if(nav=="program"){
+    if(form == "tutoring"){
+      category = 4;
+    }
+    else if(form=="contest"){
+      category = 5;
+    }
+    else if(form=="creative_semester"){
+      category = 6;
+    }
+    else if(form=="creative_community"){
+      category = 7;
+    }
+    else if(form=="hackathon"){
+      category = 8;
+    }
+  }
+
+
+  var title= req.body.title;
+  var short_description = req.body.short_description;
+  var class_info;
+  if(class_info_ == true){
+    class_info = req.body.class_name + req.body.class_num;
+  }
+  var subject= req.body.subject;
+  var current_num = req.body.current_num;
+  var recruit_num = req.body.recruit_num;
+  var recruit_start_date = req.body.recruit_start_date;
+  var recruit_end_date = req.body.recruit_end_date;
+  var position = req.body.position;
+  var start_date = req.body.start_date;
+  var end_date = req.body.end_date;
+  var TBD = req.body.TBD;
+  if(TBD=="on"){
+    TBD = true;
+  }
+  else{
+    TBD = false;
+  }
+  var goal = req.body.goal;
+  var attachment = req.body.attachment;
+  var description = req.body.description;
+  var image = req.body.image;
+  var date = new Date();
+
 
   let sql="INSERT INTO post (author_id, category, public, recruit, create_date, title, short, class_info, subject, current_num, recruit_num, recruit_start_date,recruit_end_date, position, start_date, end_date, TBD, goal, attachment, description, image) VALUES(?, ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-  let params = [11,0, true, true, Date.now(), '제목', '한줄', '학수번호001', '분야',3, 4,'2017-12-21','2017-12-21','포지션','2017-12-21','2017-12-21', true,'목표','첨부파일','상세설명','이미지'];
+  let params = [8,category, true, true, date, title, short_description, class_info, subject,current_num, recruit_num,recruit_start_date,recruit_end_date,position,start_date,end_date, TBD,goal,attachment,description,image];
+  // author_id 제대로 받기
 
 
-  res.render('post/post_detail', { "nav": nav, "form": form, "class_info": class_info, "subject": subject, "position": position ,"isWriter": true ,"authenticate": req.session.authenticate});
+  conn.query(sql, params, function(err, rows, fields){
+    if(err){
+      console.log(err);
+      res.status(500).send('Internal Server Error');
+    }
+    else{
+      console.log('성공!');
+    }
+  })
+
+
+  res.render('post/post_detail', { "nav": nav, "form": form, "class_info": class_info_, "subject": subject_, "position": position_ ,"isWriter": true ,"authenticate": req.session.authenticate});
   
 })
 
