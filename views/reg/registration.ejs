@@ -11,18 +11,25 @@
 <body>
     <%- include("../common/header") %>
         <div class="content">
-            <a href="/"><img src="/images/logo.png" class="logo__login" alt="logo"></a>
+            <a href="/"><img src="/images/logo_white.png" class="logo__login" alt="logo"></a>
             <h1 class="text_login">회원가입</h1>
-            <form action="/account/registration" class="login" method="POST">
-                <input type="text" placeholder="이메일" class="email">
-                <input type="text" placeholder="인증번호" class="validation_number">
-                <input type="text" placeholder="닉네임" class="nickname">
+            <div class="form">
+                <form action="/account/registration" class="login" method="POST">
+                    <input name="email" type="text" placeholder="이메일" class="email">
+                    <input type="text" placeholder="인증번호" class="validation_number">
+                    <input type="text" placeholder="닉네임" class="nickname">
 
-                <input type="password" placeholder="비밀번호" class="password">
-                <input type="password" placeholder="비밀번호 재확인" class="password_confirm">
+                    <input type="password" placeholder="비밀번호" class="password">
+                    <input type="password" placeholder="비밀번호 재확인" class="password_confirm">
 
-                <button class="btn_registration">가입하기</button>
-            </form>
+                    <button class="btn_registration">가입하기</button>
+                </form>
+                <div class="form_validation">
+                    <button class="email_validation">인증받기</button>
+                    <button class="validation_code_check">확인</button>
+                    <button class="nickname_validation">확인</button>
+                </div>
+            </div>
         </div>
 
 </body>

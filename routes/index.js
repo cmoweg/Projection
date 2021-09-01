@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+const dbconfig = require('../config/mysql.js');
+
 var fs = require('fs');
 
 /* GET home page. */
@@ -18,20 +20,16 @@ var url = require('url');
 var querystring = require('querystring');
 const app = require('../app');
 
-var conn = mysql.createConnection({
-  host:'localhost',
-  user:'root',
-  password:'hani1735',
-  database:'projection'
-});
+const connection = mysql.createConnection(dbconfig);
 
-router.get('/all_search', function(req, res) {
+
+router.get('/all_search', function (req, res) {
   console.log('--- log start ---');
 
   var parsedUrl = url.parse(req.url);
   console.log(parsedUrl);
 
-  var parsedQuery = querystring.parse(parsedUrl.query,'&','=');
+  var parsedQuery = querystring.parse(parsedUrl.query, '&', '=');
   var result = parsedQuery.search;
   console.log(result);
   console.log(parsedQuery);
@@ -39,11 +37,11 @@ router.get('/all_search', function(req, res) {
   var sql = "SELECT * FROM post WHERE title LIKE '%result%'";
   var params = result;
   conn.query(sql, params, (err, rows, fields) => {
-    if(err) {
+    if (err) {
       console.log(err);
     } else {
       console.log('rows', rows);
-      return res.json( {
+      return res.json({
         title: result
       });
     }

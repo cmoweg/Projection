@@ -8,7 +8,6 @@ var MySQLStore = require("express-mysql-session")(session);
 const dbconfig = require('./config/mysql.js');
 
 
-
 var indexRouter = require('./routes/index');
 var accountRouter = require('./routes/account');
 var profileRouter = require('./routes/profile');
@@ -27,7 +26,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json()) // To parse the incoming requests with JSON payloads
 app.use(session({
   secret: 'ABCD1234ABAB!@',
   resave: false,

@@ -1,16 +1,11 @@
 var express = require('express');
 const mysql = require('mysql');
+const dbconfig = require('../config/mysql.js');
 const { smtpTransport, generateRandom } = require('../config/email');
 
 
 
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  port: 3306,
-  password: '111111',
-  database: 'projection_db'
-});
+const conn = mysql.createConnection(dbconfig);
 var router = express.Router();
 
 
@@ -22,26 +17,31 @@ router.get('/login', function (req, res, next) {
 })
 
 router.post('/login', function (req, res, next) {
-  var userinfo = {
-    user_id: "hyun@sju.ac.kr",
-    user_pw: "111111",
-    displayName: "hyun"
-  };
-  var uid = req.body.email;
-  var upwd = req.body.pw;
+  var userinfo;
+  var sql = 'SELECT * FROM user WHERE email=? AND password=?';
+  var params = [req.body.email, req.body.pw];
 
-  if (uid === userinfo.user_id && upwd === userinfo.user_pw) {
-    req.session.displayName = userinfo.displayName;
-    req.session.authenticate = true;
+  console.log(params)
+  conn.query(sql, params, function (err, rows, fields) {//두번째 인자에 배열로 된 값을 넣어줄 수 있다.
+    if (err) {
+      console.log(err);
+      res.redirect('/account/login');
+    } else {
+      if (rows[0].email == req.body.email && rows[0].password == req.body.pw) {
 
-    req.session.save(() => {
-      res.redirect('/');
-    });
-  }
-  else {
-    res.redirect('/account/login');
-  }
+        req.session.displayName = rows[0].nickname;
 
+        req.session.authenticate = true;
+
+        req.session.save(() => {
+          res.redirect('/');
+        });
+      }
+      else {
+        res.redirect('/account/login');
+      }
+    }
+  })
 
 })
 
@@ -52,16 +52,18 @@ router.get('/registration', function (req, res, next) {
 
 router.post('/registration', function (req, res, next) {
 
-
   const number = generateRandom(111111, 999999)
-  const sendEmail = "lhd0426@sju.ac.kr" // req.body;
+  const sendEmail = req.body.email // req.body;
   console.log(sendEmail)
   const mailOption = {
-    from: "dtddla@naver.com",
+    from: "oyr.projection@gmail.com",
     to: sendEmail,
     subject: "[Projection]가입 인증 번호",
     text: "오른쪽 숫자 6자리를 입력해주세요 : " + number
   };
+
+
+
 
   smtpTransport.sendMail(mailOption, function (error, info) {
     if (error) {
@@ -73,6 +75,21 @@ router.post('/registration', function (req, res, next) {
 
     }
   });
+
+  // let sql = "INSERT INTO user (email, password, nickname) VALUES(?,?,?)"
+
+  // let params = ['lhd0426@sju.ac.kr', '111111', "현동"]
+
+  // conn.query(sql, params, function (err, rows, fields) {
+  //   if (err) {
+  //     console.log(err);
+  //     res.status(500).send("Internal Server Error")
+  //   }
+  //   else {
+  //     res.send(rows);
+  //   }
+  // })
+
   // res.render('reg/registration', { "isLogin": false, "authenticate": req.session.authenticate });
 })
 
