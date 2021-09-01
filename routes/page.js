@@ -15,6 +15,7 @@ router.use(express.urlencoded( {extended : false } ));
 
 let mysql = require('mysql'); // mysql 모듈 추가
 const dbconfig = require('../config/mysql.js');
+const { SSL_OP_TLS_BLOCK_PADDING_BUG } = require('constants');
 
 let conn = mysql.createConnection( // DB 정보 추가
   dbconfig
@@ -228,7 +229,7 @@ router.get('/:nav/:form/post/write', function (req, res, next) {
   }
 
  
-  res.render('post/post', { "nav": nav, "form": form, "class_info": class_info, "subject": subject, "position": position ,"authenticate": req.session.authenticate});
+  res.render('post/post', { "nav": nav, "form": form, "class_info": class_info_, "subject": subject_, "position": position_,"authenticate": req.session.authenticate});
   
 })
 
@@ -260,7 +261,41 @@ router.post('/:nav/:form/post/:id', function (req, res, next) {
       class_info_ = false;
     }
   }
-  var category = req.body.category;
+
+  var category;
+  if(nav == "project"){
+    if(form == "class"){
+      category=0;
+    }
+    else if(form == "interest"){
+      category = 1;
+    }
+  }
+  else if(nav == "study"){
+    if(form == "class"){
+      category=2;
+    }
+    else if(form == "interest"){
+      category = 3;
+    }
+  }
+  else if(nav=="program"){
+    if(form == "tutoring"){
+      category = 4;
+    }
+    else if(form=="contest"){
+      category = 5;
+    }
+    else if(form=="creative_semester"){
+      category = 6;
+    }
+    else if(form=="creative_community"){
+      category = 7;
+    }
+    else if(form=="hackathon"){
+      category = 8;
+    }
+  }
 
   var title= req.body.title;
   var short_description = req.body.short_description;
@@ -283,21 +318,19 @@ router.post('/:nav/:form/post/:id', function (req, res, next) {
   else{
     TBD = false;
   }
+  console.log(TBD);
   var goal = req.body.goal;
   var attachment = req.body.attachment;
   var description = req.body.description;
   var image = req.body.image;
   var date = new Date();
 
-  var id = req.params.id;
-
 
   let sql="INSERT INTO post (author_id, category, public, recruit, create_date, title, short, class_info, subject, current_num, recruit_num, recruit_start_date,recruit_end_date, position, start_date, end_date, TBD, goal, attachment, description, image) VALUES(?, ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-  let params = [8 ,category, true, true, date, title, short_description, class_info, subject,current_num, recruit_num,recruit_start_date,recruit_end_date,position,start_date,end_date, TBD,goal,attachment,description,image];
+  let params = [9,category, true, true, date, title, short_description, class_info, subject,current_num, recruit_num,recruit_start_date,recruit_end_date,position,start_date,end_date, TBD,goal,attachment,description,image];
   // author_id 제대로 받기
 
-
-  conn.query(sql, params, function(err, rows, fields){
+  conn.query(sql,params, function(err, rows, fields){
     if(err){
       console.log(err);
       res.status(500).send('Internal Server Error');
@@ -307,9 +340,22 @@ router.post('/:nav/:form/post/:id', function (req, res, next) {
     }
   })
 
+  conn.query(sql, function(err, rows, fields){
+    if(err){
+      console.log(err);
+      res.status(500).send('Internal Server Error');
+    }
+    else{
+      console.log('성공!');
+      var TBD_ = rows[0].TBD;
 
-  res.render('post/post_detail', { "nav": nav, "form": form, "class_info": class_info_, "subject": subject_, "position": position_ ,"isWriter": true ,"authenticate": req.session.authenticate, "id": id});
-  
+      res.render('post/post_detail', { "nav": nav, "form": form, "class_info": class_info_
+      , "subject": subject_, "position": position_, "isWriter": false 
+      ,"authenticate": req.session.authenticate, "data": rows[0], "TBD":TBD_});
+    }
+
+  })
+
 })
 
 
@@ -363,7 +409,7 @@ router.get('/:nav/:form/post/:id', function (req, res, next) {
   
 router.get('/add', function(req, res){
   let sql="INSERT INTO user (email, password, nickname, major, year, position, phone, is_public, skill, portfolio, project, award, license, introduction) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-  let params = ['이_메-일@naver.com', '비밀번호', '별명', '전공',3,'포지션','010 1234 1234', true, '스킬','포트폴리오 링크', '프로젝트','수상내역','자격증','자기소개'];
+  let params = ['이_메-일!@naver.com', '비밀번호', '별명', '전공',3,'포지션','010 1234 1234', true, '스킬','포트폴리오 링크', '프로젝트','수상내역','자격증','자기소개'];
   conn.query(sql, params, function(err, rows, fields){
     if(err){
       console.log(err);
