@@ -97,6 +97,8 @@ router.get('/:nav/:form/post/write', function (req, res, next) {
 })
 
 
+//post 방식으로 data 넘기기
+
 router.post('/:nav/:form/post/:id', function (req, res, next) {
   let nav = req.params.nav;
   let form = req.params.form;
@@ -123,14 +125,54 @@ router.post('/:nav/:form/post/:id', function (req, res, next) {
     }
   }
 
-  let title = req.body.title;
-  console.log('제목: '+title);
+
+  var title= req.body.title;
+  var short_description = req.body.short_description;
+  var class_info;
+  if(class_info_ == true){
+    class_info = req.body.class_name + req.body.class_num;
+  }
+  var subject= req.body.subject;
+  var current_num = req.body.current_num;
+  var recruit_num = req.body.recruit_num;
+  var recruit_start_date = req.body.recruit_start_date;
+  var recruit_end_date = req.body.recruit_end_date;
+  var position = req.body.position;
+  var start_date = req.body.start_date;
+  var end_date = req.body.end_date;
+  var TBD = req.body.TBD;
+  if(TBD=="on"){
+    TBD = true;
+  }
+  else{
+    TBD = false;
+  }
+  var goal = req.body.goal;
+  var attachment = req.body.attachment;
+  var description = req.body.description;
+  var image = req.body.image;
+  var date = new Date();
+
+  var id = req.params.id;
+
 
   let sql="INSERT INTO post (author_id, category, public, recruit, create_date, title, short, class_info, subject, current_num, recruit_num, recruit_start_date,recruit_end_date, position, start_date, end_date, TBD, goal, attachment, description, image) VALUES(?, ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-  let params = [11,0, true, true, Date.now(), '제목', '한줄', '학수번호001', '분야',3, 4,'2017-12-21','2017-12-21','포지션','2017-12-21','2017-12-21', true,'목표','첨부파일','상세설명','이미지'];
+  let params = [id ,category, true, true, date, title, short_description, class_info, subject,current_num, recruit_num,recruit_start_date,recruit_end_date,position,start_date,end_date, TBD,goal,attachment,description,image];
+  // author_id 제대로 받기
 
 
-  res.render('post/post_detail', { "nav": nav, "form": form, "class_info": class_info, "subject": subject, "position": position ,"isWriter": true ,"authenticate": req.session.authenticate});
+  conn.query(sql, params, function(err, rows, fields){
+    if(err){
+      console.log(err);
+      res.status(500).send('Internal Server Error');
+    }
+    else{
+      console.log('성공!');
+    }
+  })
+
+
+  res.render('post/post_detail', { "nav": nav, "form": form, "class_info": class_info_, "subject": subject_, "position": position_ ,"isWriter": true ,"authenticate": req.session.authenticate, "id": id});
   
 })
 
@@ -162,10 +204,28 @@ router.get('/:nav/:form/post/:id', function (req, res, next) {
       class_info = false;
     }
   }
+  let id = req.params.id;
+  let sql="SELECT * from post WHERE post_id="+ id;
 
+
+  conn.query(sql, function(err, rows, fields){
+    if(err){
+      console.log(err);
+      res.status(500).send('Internal Server Error');
+    }
+    else{
+      console.log('성공!');
+      var TBD = rows[0].TBD;
+
+      res.render('post/post_detail', { "nav": nav, "form": form, "class_info": class_info_
+      , "subject": subject_, "position": position_, "isWriter": false 
+      ,"authenticate": req.session.authenticate, "data": rows[0], "TBD":TBD});
+    }
+
+  })
 
   
-    res.render('post/post_detail', { "nav": nav, "form": form, "class_info": class_info, "subject": subject, "position": position, "isWriter": false ,"authenticate": req.session.authenticate});
+   
   })
 
 
