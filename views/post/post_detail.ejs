@@ -24,7 +24,7 @@
         <main id="detail_main">
 
             <div>
-                <h1>제목</h1>
+                <h1><%=data?.title%></h1>
                 <p class="list"><a href="/page/<%=nav %>/<%=form %>" id="list_link">목록으로</a></p>
             </div>
 
@@ -34,54 +34,59 @@
                 <img src="https://drive.google.com/uc?export=view&id=16_C2wBgGNmz4uY8XmkkjAZmMdaFtiGWb" alt="" id="pic">
 
                 <p id="short" class="contents">
-                    한줄설명
+                    한줄설명: <%=data?.short%>
                 </p>
 
                 <% if(class_info){ %>
                     <p id="class_info" class="contents">
-                            학수번호
+                            학수번호: <%=data?.class_info%>
                     </p>
                 <% } %>
 
                 <% if(subject){ %>
                     <p id="subject" class="contents">
-                        분야
+                        분야: <%=data?.subject%>
                     </p>
                 <% } %>
 
                  <p id="current_num" class="contents">
-                     현재 팀원 수
+                     현재 팀원 수: <%=data?.current_num%>
                 </p>
 
                 <p id="num" class="contents">
-                 모집 인원
+                 모집 인원: <%=data?.recruit_num%>
                 </p>
 
                 <p id="Period" class="contents">
-                    모집 기간
+                    모집 기간: <%=data?.recruit_start_date%> ~ <%=data?.recruit_end_date%>
                 </p>
 
                 <% if(position){ %>
 
                     <p id="position" class="contents">
-                        모집 포지션
+                        모집 포지션: <%=data?.position%>
                     </p>
                 <% } %>
 
                 <p id="Activity_period" class="contents">
-                   활동 기간: 시작일 / 마감일 <input type="checkbox" name="" id=""> 추후 결정
+                   활동 기간: 
+                   <% if(TBD==true){ %>
+                        추후 결정
+                   <%} else{%>
+                        시작일 <%=data?.start_date%>/ 마감일 <%=data?.end_date%>
+                    <%}%>
                 </p>
 
                 <p id="goal" class="contents">
-                    목표
+                    목표: <%=data?.goal%>
                 </p>
 
                 <p id="file" class="contents">
-                파일 첨부
+                파일 첨부: <%=data?.attachment%>
                 </p>
 
                 <p id="description" class="contents">
-                    상세 설명:
+                    상세 설명: <%=data?.description%>
                 <br>
                 </p>
 
@@ -93,11 +98,11 @@
                     <img src="https://drive.google.com/uc?export=view&id=16_C2wBgGNmz4uY8XmkkjAZmMdaFtiGWb" alt="" id="icon"> 닉네임
                     <p>
                         모집 기간 <br>
-                        ---------
+                        <%=data?.recruit_start_date%> ~ <%=data?.recruit_end_date%>
                     </p>
                     <p>
                         모집 현황 <br>
-                        ---------
+                        <%=data?.current_num%> / <%=data?.recruit_num%>
                     </p>
                     <button id="btn_edit" class="btn blue">수정하기</button>
                     <button id="btn_public" class="btn red">비공개로 변경</button>
@@ -110,13 +115,13 @@
                         <img src="https://drive.google.com/uc?export=view&id=16_C2wBgGNmz4uY8XmkkjAZmMdaFtiGWb" alt="" id="icon"> 닉네임
                         <p>
                             모집 기간 <br>
-                            ---------
+                            <%=data?.recruit_start_date%> ~ <%=data?.recruit_end_date%>
                         </p>
                         <p>
                             모집 현황 <br>
-                            ---------
+                            <%=data?.current_num%> / <%=data?.recruit_num%>
                         </p>
-                        <button id="btn" class="blue">지원하기</button>
+                        <button id="btn_apply" class="btn blue">지원하기</button>
                     </div>
 
                     <div id="team">

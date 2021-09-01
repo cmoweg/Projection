@@ -206,34 +206,48 @@ router.post('/:nav/:form/post/:id', function (req, res, next) {
 router.get('/:nav/:form/post/:id', function (req, res, next) {
   let nav = req.params.nav;
   let form = req.params.form;
-  console.log(nav)
-  let class_info = true;
-  let subject = true;
-  let position = true;
+  let class_info_ = true;
+  let subject_ = true;
+  let position_ = true;
 
 
   if (nav == "project" && form == "interest") {
-    class_info = false;
+    class_info_ = false;
   }
   else if (nav == "study") {
-    position = false;
+    position_ = false;
 
     if (form == "interest") {
-      class_info = false;
+      class_info_ = false;
     }
   }
   else if (nav == "program") {
     if (form == "tutoring") {
-      subject = false;
+      subject_ = false;
     }
     else if (form == "contest" || form == "creative_semester" || form == "creative_community") {
-      class_info = false;
+      class_info_ = false;
     }
   }
 
+  let id = req.params.id;
+  let sql="SELECT * from post WHERE post_id="+ id;
 
-  
-    res.render('post/post_detail', { "nav": nav, "form": form, "class_info": class_info, "subject": subject, "position": position, "isWriter": false ,"authenticate": req.session.authenticate});
+
+  conn.query(sql, function(err, rows, fields){
+    if(err){
+      console.log(err);
+      res.status(500).send('Internal Server Error');
+    }
+    else{
+      console.log('성공!');
+      var TBD = rows[0].TBD;
+      res.render('post/post_detail', { "nav": nav, "form": form, "class_info": class_info_, "subject": subject_, "position": position_, "isWriter": false ,"authenticate": req.session.authenticate, "data": rows[0], "TBD":TBD});
+    }
+
+  })
+
+   
   })
 
 
