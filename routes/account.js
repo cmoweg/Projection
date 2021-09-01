@@ -1,6 +1,6 @@
 var express = require('express');
 const mysql = require('mysql');
-const { smtpTransport, generateRandom } = require('../config/email');
+//const { smtpTransport, generateRandom } = require('../config/email');
 
 
 

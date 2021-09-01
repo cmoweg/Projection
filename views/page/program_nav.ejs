@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    <% if(form == "all"){ %>
         <nav class="nav">
             <ul class="navp">
                 <li>
@@ -33,16 +34,34 @@
                     <a href="/page/program/hackathon">해커톤</a>
                 </li>
             </ul>
-            <div class="new_post">
-                <a href="/page/program/<%=form %>/post">새로운 글 쓰기</a>
-            </div>
         </nav>
-
-        <style>
-            .<%=form%> {
-                color: #F27357;
-            }
-        </style>
+        <% } else if (form=="tutoring"|| form=="contest"|| form=="creative_semester"|| form=="creative_community"|| form=="hackathon") { %>
+            <nav class="nav">
+                <ul class="navp">
+                    <li>
+                        <a href="/page/program/all">전체</a>
+                    </li>
+                    <li>
+                        <a href="/page/program/tutoring">튜터링</a>
+                    </li>
+                    <li>
+                        <a href="/page/program/contest">공모전/창업프로그램</a>
+                    </li>
+                    <li>
+                        <a href="/page/program/creative_semester">창의학기제</a>
+                    </li>
+                    <li>
+                        <a href="/page/program/creative_community">창의학습공동체</a>
+                    </li>
+                    <li>
+                        <a href="/page/program/hackathon">해커톤</a>
+                    </li>
+                </ul>
+                <div class="new_post">
+                    <a href="/page/program/<%=form %>/post/write">새로운 글 쓰기</a>
+                </div>
+            </nav>
+        <% } %>
         
 </body>
 

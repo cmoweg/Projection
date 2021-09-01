@@ -10,26 +10,37 @@
     <link rel="stylesheet" href="/stylesheets/nav.css">
 </head>
 <body>
-    <nav class="nav">
-        <ul class="navp">
-            <li>
-                <a href="/page/project/all">전체</a>
-            </li>
-            <li>
-                <a href="/page/project/class">수업</a>
-            </li>
-            <li>
-                <a href="/page/project/interest">관심</a>
-            </li>
-        </ul>
-        <div class="new_post">
-            <a href="/page/project/<%=form %>/post">새로운 글 쓰기</a>
-        </div>
-    </nav>
-        <style>
-            .<%=form%> {
-                color: #F27357;
-            }
-        </style>
+    <% if(form == "all"){ %>
+        <nav class="nav">
+            <ul class="navp">
+                <li>
+                    <a href="/page/project/all">전체</a>
+                </li>
+                <li>
+                    <a href="/page/project/class">수업</a>
+                </li>
+                <li>
+                    <a href="/page/project/interest">관심</a>
+                </li>
+            </ul>
+        </nav>
+        <% } else if (form=="class" || form=="interest") { %>
+            <nav class="nav">
+                <ul class="navp">
+                    <li>
+                        <a href="/page/project/all">전체</a>
+                    </li>
+                    <li>
+                        <a href="/page/project/class">수업</a>
+                    </li>
+                    <li>
+                        <a href="/page/project/interest">관심</a>
+                    </li>
+                </ul>
+                <div class="new_post">
+                    <a href="/page/project/<%=form %>/post/write">새로운 글 쓰기</a>
+                </div>
+            </nav>
+        <% } %>
 </body>
 </html>
