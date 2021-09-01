@@ -2,11 +2,15 @@ var express = require('express');
 var router = express.Router();
 var fs = require('fs');
 var bodyParser = require('body-parser');
+var http = require('http');
+
+const sequelize = require("sequelize");
+var url = require('url');
+var querystring = require('querystring');
 
 router.use(express.json());
 
 router.use(express.urlencoded( {extended : false } ));
-
 
 
 let mysql = require('mysql'); // mysql 모듈 추가
@@ -15,11 +19,6 @@ const dbconfig = require('../config/mysql.js');
 let conn = mysql.createConnection( // DB 정보 추가
   dbconfig
 );
-var http = require('http');
-
-const sequelize = require("sequelize");
-var url = require('url');
-var querystring = require('querystring');
 
 router.get('/project', function (req, res, next) {
   res.redirect('/page/project/all');
@@ -28,10 +27,43 @@ router.get('/project', function (req, res, next) {
 router.get('/project/:form', function (req, res, next) {
   let form = req.params.form;
   console.log(form);
-  var obj = JSON.parse(fs.readFileSync('data/post_list.json', 'utf8'));
 
-  res.render('page/project', { "form": form, "post_list": obj ,"authenticate": req.session.authenticate});
-
+  if(form == "all") {
+    var sql = "SELECT title, short_description, current_num, recruit_num FROM post WHERE category =? OR category =?";
+    conn.query(sql, [2, 3], function(err, rows, fields){
+      if(err) {
+        console.log(err);
+        res.status(500).send('Internal Server Error');
+      } else {
+        console.log(rows);
+        res.render('page/project', {rows : rows, post : undefined, "form" : "all", "authenticate": req.session.authenticate});
+      }
+    });
+  }
+  else if(form == "class") {
+    var sql = "SELECT title, short_description, current_num, recruit_num FROM post WHERE category =?";
+    conn.query(sql, 2, function(err, rows, fields){
+      if(err) {
+        console.log(err);
+        res.status(500).send('Internal Server Error');
+      } else {
+        console.log(rows);
+        res.render('page/project', {rows : rows, post : undefined, "form" : "class", "authenticate": req.session.authenticate});
+      }
+    });
+  }
+  else if(form == "interest") {
+    var sql = "SELECT title, short_description, current_num, recruit_num FROM post WHERE category =?";
+    conn.query(sql, 3, function(err, rows, fields){
+      if(err) {
+        console.log(err);
+        res.status(500).send('Internal Server Error');
+      } else {
+        console.log(rows);
+        res.render('page/project', {rows : rows, post : undefined, "form" : "interest", "authenticate": req.session.authenticate});
+      }
+    });
+  }
 }) 
 
 router.get('/study', function (req, res, next) {
@@ -41,10 +73,43 @@ router.get('/study', function (req, res, next) {
 router.get('/study/:form', function (req, res, next) {
   let form = req.params.form;
   console.log(form);
-  var obj = JSON.parse(fs.readFileSync('data/post_list.json', 'utf8'));
 
-  res.render('page/study', { "form": form, "post_list": obj ,"authenticate": req.session.authenticate});
-
+  if(form == "all") {
+    var sql = "SELECT title, short_description, current_num, recruit_num FROM post WHERE category =? OR category =?";
+    conn.query(sql, [0,1], function(err, rows, fields){
+      if(err) {
+        console.log(err);
+        res.status(500).send('Internal Server Error');
+      } else {
+        console.log(rows);
+        res.render('page/study', {rows : rows, post : undefined, "form" : "all", "authenticate": req.session.authenticate});
+      }
+    });
+  }
+  else if(form == "class") {
+    var sql = "SELECT title, short_description, current_num, recruit_num FROM post WHERE category =?";
+    conn.query(sql, 0, function(err, rows, fields){
+      if(err) {
+        console.log(err);
+        res.status(500).send('Internal Server Error');
+      } else {
+        console.log(rows);
+        res.render('page/study', {rows : rows, post : undefined, "form" : "class", "authenticate": req.session.authenticate});
+      }
+    });
+  }
+  else if(form == "interest") {
+    var sql = "SELECT title, short_description, current_num, recruit_num FROM post WHERE category =?";
+    conn.query(sql, 1, function(err, rows, fields){
+      if(err) {
+        console.log(err);
+        res.status(500).send('Internal Server Error');
+      } else {
+        console.log(rows);
+        res.render('page/study', {rows : rows, post : undefined, "form" : "interest", "authenticate": req.session.authenticate});
+      }
+    });
+  }
 })
 
 router.get('/program', function (req, res, next) {
@@ -54,8 +119,79 @@ router.get('/program', function (req, res, next) {
 router.get('/program/:form', function (req, res, next) {
   let form = req.params.form;
   console.log(form);
-  var obj = JSON.parse(fs.readFileSync('data/post_list.json', 'utf8'));
-  res.render('page/program', { "form": form, "post_list": obj, "authenticate": req.session.authenticate });
+
+  if(form == "all") {
+    var sql = "SELECT title, short_description, current_num, recruit_num FROM post WHERE category =? OR category =? OR category =? OR category =? OR category =?";
+    conn.query(sql, [4, 5, 6, 7, 8], function(err, rows, fields){
+      if(err) {
+        console.log(err);
+        res.status(500).send('Internal Server Error');
+      } else {
+        console.log(rows);
+        res.render('page/program', {rows : rows, post : undefined, "form" : "all", "authenticate": req.session.authenticate});
+      }
+    });
+  }
+  else if(form == "tutoring") {
+    var sql = "SELECT title, short_description, current_num, recruit_num FROM post WHERE category =?";
+    conn.query(sql, 4, function(err, rows, fields){
+      if(err) {
+        console.log(err);
+        res.status(500).send('Internal Server Error');
+      } else {
+        console.log(rows);
+        res.render('page/program', {rows : rows, post : undefined, "form" : "tutoring", "authenticate": req.session.authenticate});
+      }
+    });
+  }
+  else if(form == "contest") {
+    var sql = "SELECT title, short_description, current_num, recruit_num FROM post WHERE category =?";
+    conn.query(sql, 5, function(err, rows, fields){
+      if(err) {
+        console.log(err);
+        res.status(500).send('Internal Server Error');
+      } else {
+        console.log(rows);
+        res.render('page/program', {rows : rows, post : undefined, "form" : "contest", "authenticate": req.session.authenticate});
+      }
+    });
+  }
+  else if(form == "creative_semester") {
+    var sql = "SELECT title, short_description, current_num, recruit_num FROM post WHERE category =?";
+    conn.query(sql, 6, function(err, rows, fields){
+      if(err) {
+        console.log(err);
+        res.status(500).send('Internal Server Error');
+      } else {
+        console.log(rows);
+        res.render('page/program', {rows : rows, post : undefined, "form" : "creative_semester", "authenticate": req.session.authenticate});
+      }
+    });
+  }
+  else if(form == "creative_community") {
+    var sql = "SELECT title, short_description, current_num, recruit_num FROM post WHERE category =?";
+    conn.query(sql, 7, function(err, rows, fields){
+      if(err) {
+        console.log(err);
+        res.status(500).send('Internal Server Error');
+      } else {
+        console.log(rows);
+        res.render('page/program', {rows : rows, post : undefined, "form" : "creative_community", "authenticate": req.session.authenticate});
+      }
+    });
+  }
+  else if(form == "hackathon") {
+    var sql = "SELECT title, short_description, current_num, recruit_num FROM post WHERE category =?";
+    conn.query(sql, 8, function(err, rows, fields){
+      if(err) {
+        console.log(err);
+        res.status(500).send('Internal Server Error');
+      } else {
+        console.log(rows);
+        res.render('page/program', {rows : rows, post : undefined, "form" : "hackathon", "authenticate": req.session.authenticate});
+      }
+    });
+  }
 })
 
 module.exports = router;
@@ -217,28 +353,84 @@ router.get('/add_', function(req, res){
 //프로그램 검색
 router.get('/program_search/:form', function(req, res) {
   console.log('--- log start ---');
-
   var parsedUrl = url.parse(req.url);
-  console.log(parsedUrl);
-
   var parsedQuery = querystring.parse(parsedUrl.query,'&','=');
   var result = parsedQuery.search;
+  var title_search = "%" + result + "%";
   console.log(result);
   console.log(parsedQuery);
+  let form = req.params.form;
+  var cate;
+  if(form == "tutoring") {
+    cate = 4;
+  }
+  else if(form == "contest") {
+    cate = 5;
+  }
+  else if(form == "creative_semester") {
+    cate = 6;
+  }
+  else if(form == "creative_community") {
+    cate = 7;
+  }
+  else if(form == "hackathon") {
+    cate = 8;
+  }
 
-  var sql = "SELECT * FROM post WHERE title LIKE '%result%'";
-  var params = result;
-  conn.query(sql, params, (err, rows, fields) => {
-    if(err) {
-      console.log(err);
-    } else {
-      console.log('rows', rows);
-      return res.json( {
-        title: result
+  if(form == "all") {
+    if(!result) {
+      var sql = "SELECT * FROM post WHERE category =? OR category =? OR category =? OR category =? OR category =?";
+      conn.query(sql, [4, 5, 6, 7, 8], function(err, rows, fields) {
+        if(err){
+          console.log(err);
+          res.status(500).send('Internal Server Error');
+        } else {
+          console.log(rows);
+          res.render('page/program', {rows : rows, "form" : "all", "authenticate": req.session.authenticate});
+        }
       });
     }
-  });
-
+  
+    else {
+      var sql = "SELECT * FROM post WHERE title LIKE ? AND (category =? OR category =? OR category =? OR category =? OR category =?)";
+      conn.query(sql, [title_search, 4, 5, 6, 7, 8], function(err, rows, fields){
+        if(err) {
+          console.log(err);
+          res.status(500).send('Internal Server Error');
+        } else {
+          console.log(rows);
+          res.render('page/program', {rows : rows, "form" : "all", "authenticate": req.session.authenticate});
+        }
+      });
+    }
+  }
+  else if(form == "tutoring" || form == "contest" || form == "creative_semester" || form == "creative_community" || form == "hackathon") {
+    if(!result) {
+      var sql = "SELECT * FROM post WHERE category =?";
+      conn.query(sql, cate, function(err, rows, fields) {
+        if(err){
+          console.log(err);
+          res.status(500).send('Internal Server Error');
+        } else {
+          console.log(rows);
+          res.render('page/program', {rows : rows, "form" : form, "authenticate": req.session.authenticate});
+        }
+      });
+    }
+  
+    else {
+      var sql = "SELECT * FROM post WHERE category =? AND title LIKE ?";
+      conn.query(sql, [cate, title_search], function(err, rows, fields){
+        if(err) {
+          console.log(err);
+          res.status(500).send('Internal Server Error');
+        } else {
+          console.log(rows);
+          res.render('page/program', {rows : rows, "form" : form, "authenticate": req.session.authenticate});
+        }
+      });
+    }
+  }
   console.log('--- log end ---');
 })
 
@@ -247,26 +439,35 @@ router.get('/project_search/all', function(req, res) {
   console.log('--- log start ---');
 
   var parsedUrl = url.parse(req.url);
-  console.log(parsedUrl);
-
   var parsedQuery = querystring.parse(parsedUrl.query,'&','=');
   var result = parsedQuery.search;
+  var title_search = "%" + result + "%";
   console.log(result);
   console.log(parsedQuery);
-
-  var sql = "SELECT * FROM post WHERE title LIKE '%result%'";
-  var params = result;
-  conn.query(sql, params, (err, rows, fields) => {
-    if(err) {
-      console.log(err);
-    } else {
-      console.log('rows', rows);
-      return res.json( {
-        title: result
-      });
-    }
-  });
-
+  if(!result) {
+    var sql = "SELECT * FROM post WHERE category =? OR category =?";
+    conn.query(sql, [2, 3], function(err, rows, fields) {
+      if(err){
+        console.log(err);
+        res.status(500).send('Internal Server Error');
+      } else {
+        console.log(rows);
+        res.render('page/project', {rows : rows, "form" : "all", "authenticate": req.session.authenticate});
+      }
+    });
+  }
+  else {
+    var sql = "SELECT * FROM post WHERE title LIKE ? AND (category =? OR category =?)";
+    conn.query(sql, [title_search, 2, 3], function(err, rows, fields){
+      if(err) {
+        console.log(err);
+        res.status(500).send('Internal Server Error');
+      } else {
+        console.log(rows);
+        res.render('page/project', {rows : rows, "form" : "all", "authenticate": req.session.authenticate});
+      }
+    });
+  }
   console.log('--- log end ---');
 })
 
@@ -274,31 +475,124 @@ router.get('/project_search/class', function(req, res) {
   console.log('--- log start ---');
 
   var parsedUrl = url.parse(req.url);
-  console.log(parsedUrl);
-
   var parsedQuery = querystring.parse(parsedUrl.query,'&','=');
   var result1 = parsedQuery.num;
   var result2 = parsedQuery.div;
-  var result = result1 + result2;
   var search = parsedQuery.search;
+  var title_search = "%" + search + "%";
   console.log(result1);
   console.log(result2);
   console.log(search);
   console.log(parsedQuery);
 
-  var sql = "SELECT * FROM post WHERE class_info_num =? AND class_info_div =? AND title =?";
-  conn.query(sql, [result1, result2, `%search%`], (err, rows, fields) => {
-    if(err) {
-      console.log(err);
-    } else {
-      console.log('rows', rows);
-      return res.json( {
-        class_info_num: result1,
-        class_info_div: result2,
-        title: search
-      });
+  if(!result1) {
+    if(!result2) {
+      if(!search) {
+        var sql = "SELECT * FROM post WHERE category =?";
+        conn.query(sql, 2, function(err, rows, fields){
+          if(err) {
+            console.log(err);
+            res.status(500).send('Internal Server Error');
+          } else {
+            console.log(rows);
+            res.render('page/project', {rows : rows, "form" : "class", "authenticate": req.session.authenticate});
+          }
+        });
+      }
+      else {
+        var sql = "SELECT * FROM post WHERE category =? AND title LIKE ?";
+        conn.query(sql, [2, title_search], (err, rows, fields) => {
+          if(err) {
+            console.log(err);
+            res.status(500).send('Internal Server Error');
+          } else {
+            console.log(rows);
+            res.render('page/project', {rows : rows, "form" : "class", "authenticate": req.session.authenticate});
+          }
+        });
+      }
     }
-  });
+    else {
+      if(!search) {
+        var sql = "SELECT * FROM post WHERE category =? AND class_info_div =?";
+        conn.query(sql, [2, result2], (err, rows, fields) => {
+          if(err) {
+            console.log(err);
+            res.status(500).send('Internal Server Error');
+          } else {
+            console.log(rows);
+            res.render('page/project', {rows : rows, "form" : "class", "authenticate": req.session.authenticate});
+          }
+        });
+      }
+      else {
+        var sql = "SELECT * FROM post WHERE category =? AND class_info_div =? AND title LIKE ?";
+        conn.query(sql, [2, result2, title_search], (err, rows, fields) => {
+          if(err) {
+            console.log(err);
+            res.status(500).send('Internal Server Error');
+          } else {
+            console.log(rows);
+            res.render('page/project', {rows : rows, "form" : "class", "authenticate": req.session.authenticate});
+          }
+        });
+      }
+    }
+  }
+  else {
+    if(!result2) {
+      if(!search) {
+        var sql = "SELECT * FROM post WHERE category =? AND class_info_num =?";
+        conn.query(sql, [2, result1], (err, rows, fields) => {
+          if(err) {
+            console.log(err);
+            res.status(500).send('Internal Server Error');
+          } else {
+            console.log(rows);
+            res.render('page/project', {rows : rows, "form" : "class", "authenticate": req.session.authenticate});
+          }
+        });
+      }
+      else {
+        var sql = "SELECT * FROM post WHERE class_info_num =? AND title LIKE ?";
+        conn.query(sql, [result1, title_search], (err, rows, fields) => {
+          if(err) {
+            console.log(err);
+            res.status(500).send('Internal Server Error');
+          } else {
+            console.log(rows);
+            res.render('page/project', {rows : rows, "form" : "class", "authenticate": req.session.authenticate});
+          }
+        });
+      }
+    }
+    else {
+      if(!search) {
+        var sql = "SELECT * FROM post WHERE category =? AND class_info_num =? AND class_info_div =?";
+        conn.query(sql, [2, result1, result2], (err, rows, fields) => {
+          if(err) {
+            console.log(err);
+            res.status(500).send('Internal Server Error');
+          } else {
+            console.log(rows);
+            res.render('page/project', {rows : rows, "form" : "class", "authenticate": req.session.authenticate});
+          }
+        });
+      }
+      else {
+        var sql = "SELECT * FROM post WHERE category =? AND class_info_num =? AND class_info_div =? AND title LIKE ?";
+        conn.query(sql, [2, result1, result2, title_search], (err, rows, fields) => {
+          if(err) {
+            console.log(err);
+            res.status(500).send('Internal Server Error');
+          } else {
+            console.log(rows);
+            res.render('page/project', {rows : rows, "form" : "class", "authenticate": req.session.authenticate});
+          }
+        });
+      }
+    }
+  }
   console.log('--- log end ---');
 })
 
@@ -306,27 +600,66 @@ router.get('/project_search/interest', function(req, res) {
   console.log('--- log start ---');
 
   var parsedUrl = url.parse(req.url);
-  console.log(parsedUrl);
-
   var parsedQuery = querystring.parse(parsedUrl.query,'&','=');
   var select = parsedQuery.select;
   var search = parsedQuery.search;
+  var title_search = "%" + search + "%";
   console.log(select);
   console.log(search);
   console.log(parsedQuery);
 
-  var sql = "SELECT * FROM post WHERE subject =? AND title =?";
-  conn.query(sql, [select, `%search%`], (err, rows, fields) => {
-    if(err) {
-      console.log(err);
-    } else {
-      console.log('rows', rows);
-      return res.json( {
-        subject: select,
-        title: search
+  if(select == 0) {
+    if(!search) {
+      var sql = "SELECT * FROM post WHERE category =?";
+      conn.query(sql, 3, function(err, rows, fields) {
+        if(err){
+          console.log(err);
+          res.status(500).send('Internal Server Error');
+        } else {
+          console.log(rows);
+          res.render('page/project', {rows : rows, "form" : "interest", "authenticate": req.session.authenticate});
+        }
       });
     }
-  });
+    else {
+      var sql = "SELECT * FROM post WHERE category =? AND title LIKE ?";
+      conn.query(sql, [3, title_search], (err, rows, fields) => {
+        if(err) {
+          console.log(err);
+          res.status(500).send('Internal Server Error');
+        } else {
+          console.log(rows);
+          res.render('page/project', {rows : rows, "form" : "interest", "authenticate": req.session.authenticate});
+        }
+      });
+    }
+  }
+  else {
+    if(!search) {
+      var sql = "SELECT * FROM post WHERE category =? AND subject =?";
+      conn.query(sql, [3, select], (err, rows, fields) => {
+        if(err){
+          console.log(err);
+          res.status(500).send('Internal Server Error');
+        } else {
+          console.log(rows);
+          res.render('page/project', {rows : rows, "form" : "interest", "authenticate": req.session.authenticate});
+        }
+      });
+    }
+    else {
+      var sql = "SELECT * FROM post WHERE category =? AND subject =? AND title LIKE ?";
+      conn.query(sql, [3, select, title_search], (err, rows, fields) => {
+        if(err) {
+          console.log(err);
+          res.status(500).send('Internal Server Error');
+        } else {
+          console.log(rows);
+          res.render('page/project', {rows : rows, "form" : "interest", "authenticate": req.session.authenticate});
+        }
+      });
+    }
+  }
 
   console.log('--- log end ---');
 })
@@ -336,25 +669,35 @@ router.get('/study_search/all', function(req, res) {
   console.log('--- log start ---');
 
   var parsedUrl = url.parse(req.url);
-  console.log(parsedUrl);
-
   var parsedQuery = querystring.parse(parsedUrl.query,'&','=');
   var result = parsedQuery.search;
+  var title_search = "%" + result + "%";
   console.log(result);
   console.log(parsedQuery);
-
-  var sql = "SELECT * FROM post WHERE title LIKE '%result%'";
-  var params = result;
-  conn.query(sql, params, (err, rows, fields) => {
-    if(err) {
-      console.log(err);
-    } else {
-      console.log('rows', rows);
-      return res.json( {
-        title: result
-      });
-    }
-  });
+  if(!result) {
+    var sql = "SELECT * FROM post WHERE category =? OR category =?";
+    conn.query(sql, [0, 1], function(err, rows, fields) {
+      if(err){
+        console.log(err);
+        res.status(500).send('Internal Server Error');
+      } else {
+        console.log(rows);
+        res.render('page/study', {rows : rows, "form" : "all", "authenticate": req.session.authenticate});
+      }
+    });
+  }
+  else {
+    var sql = "SELECT * FROM post WHERE title LIKE ? AND (category =? OR category =?)";
+    conn.query(sql, [title_search, 0, 1], function(err, rows, fields){
+      if(err) {
+        console.log(err);
+        res.status(500).send('Internal Server Error');
+      } else {
+        console.log(rows);
+        res.render('page/study', {rows : rows, "form" : "all", "authenticate": req.session.authenticate});
+      }
+    });
+  }
 
   console.log('--- log end ---');
 })
@@ -363,31 +706,124 @@ router.get('/study_search/class', function(req, res) {
   console.log('--- log start ---');
 
   var parsedUrl = url.parse(req.url);
-  console.log(parsedUrl);
-
   var parsedQuery = querystring.parse(parsedUrl.query,'&','=');
   var result1 = parsedQuery.num;
   var result2 = parsedQuery.div;
-  var result = result1 + result2;
   var search = parsedQuery.search;
+  var title_search = "%" + search + "%";
   console.log(result1);
   console.log(result2);
   console.log(search);
   console.log(parsedQuery);
 
-  var sql = "SELECT * FROM post WHERE class_info_num =? AND class_info_div =? AND title =?";
-  conn.query(sql, [result1, result2, `%search%`], (err, rows, fields) => {
-    if(err) {
-      console.log(err);
-    } else {
-      console.log('rows', rows);
-      return res.json( {
-        class_info_num: result1,
-        class_info_div: result2,
-        title: search
-      });
+  if(!result1) {
+    if(!result2) {
+      if(!search) {
+        var sql = "SELECT * FROM post WHERE category =?";
+        conn.query(sql, 0, function(err, rows, fields){
+          if(err) {
+            console.log(err);
+            res.status(500).send('Internal Server Error');
+          } else {
+            console.log(rows);
+            res.render('page/study', {rows : rows, "form" : "class", "authenticate": req.session.authenticate});
+          }
+        });
+      }
+      else {
+        var sql = "SELECT * FROM post WHERE category =? AND title LIKE ?";
+        conn.query(sql, [0, title_search], (err, rows, fields) => {
+          if(err) {
+            console.log(err);
+            res.status(500).send('Internal Server Error');
+          } else {
+            console.log(rows);
+            res.render('page/study', {rows : rows, "form" : "class", "authenticate": req.session.authenticate});
+          }
+        });
+      }
     }
-  });
+    else {
+      if(!search) {
+        var sql = "SELECT * FROM post WHERE category =? AND class_info_div =?";
+        conn.query(sql, [0, result2], (err, rows, fields) => {
+          if(err) {
+            console.log(err);
+            res.status(500).send('Internal Server Error');
+          } else {
+            console.log(rows);
+            res.render('page/study', {rows : rows, "form" : "class", "authenticate": req.session.authenticate});
+          }
+        });
+      }
+      else {
+        var sql = "SELECT * FROM post WHERE category =? AND class_info_div =? AND title LIKE ?";
+        conn.query(sql, [0, result2, title_search], (err, rows, fields) => {
+          if(err) {
+            console.log(err);
+            res.status(500).send('Internal Server Error');
+          } else {
+            console.log(rows);
+            res.render('page/study', {rows : rows, "form" : "class", "authenticate": req.session.authenticate});
+          }
+        });
+      }
+    }
+  }
+  else {
+    if(!result2) {
+      if(!search) {
+        var sql = "SELECT * FROM post WHERE category =? AND class_info_num =?";
+        conn.query(sql, [0, result1], function(err, rows, fields){
+          if(err) {
+            console.log(err);
+            res.status(500).send('Internal Server Error');
+          } else {
+            console.log(rows);
+            res.render('page/study', {rows : rows, "form" : "class", "authenticate": req.session.authenticate});
+          }
+        });
+      }
+      else {
+        var sql = "SELECT * FROM post WHERE category =? AND class_info_num =? AND title LIKE ?";
+        conn.query(sql, [0, result1, title_search], (err, rows, fields) => {
+          if(err) {
+            console.log(err);
+            res.status(500).send('Internal Server Error');
+          } else {
+            console.log(rows);
+            res.render('page/study', {rows : rows, "form" : "class", "authenticate": req.session.authenticate});
+          }
+        });
+      }
+    }
+    else {
+      if(!search) {
+        var sql = "SELECT * FROM post WHERE category =? AND class_info_num =? AND class_info_div =?";
+        conn.query(sql, [0, result1, result2], (err, rows, fields) => {
+          if(err) {
+            console.log(err);
+            res.status(500).send('Internal Server Error');
+          } else {
+            console.log(rows);
+            res.render('page/study', {rows : rows, "form" : "class", "authenticate": req.session.authenticate});
+          }
+        });
+      }
+      else {
+        var sql = "SELECT * FROM post WHERE category =? AND class_info_num =? AND class_info_div =? AND title LIKE ?";
+        conn.query(sql, [0, result1, result2, title_search], (err, rows, fields) => {
+          if(err) {
+            console.log(err);
+            res.status(500).send('Internal Server Error');
+          } else {
+            console.log(rows);
+            res.render('page/study', {rows : rows, "form" : "class", "authenticate": req.session.authenticate});
+          }
+        });
+      }
+    }
+  }
 
   console.log('--- log end ---');
 })
@@ -396,27 +832,66 @@ router.get('/study_search/interest', function(req, res) {
   console.log('--- log start ---');
 
   var parsedUrl = url.parse(req.url);
-  console.log(parsedUrl);
-
   var parsedQuery = querystring.parse(parsedUrl.query,'&','=');
   var select = parsedQuery.select;
   var search = parsedQuery.search;
+  var title_search = "%" + search + "%";
   console.log(select);
   console.log(search);
   console.log(parsedQuery);
 
-  var sql = "SELECT * FROM post WHERE subject =? AND title =?";
-  conn.query(sql, [select, `%search%`], (err, rows, fields) => {
-    if(err) {
-      console.log(err);
-    } else {
-      console.log('rows', rows);
-      return res.json( {
-        subject: select,
-        title: search
+  if(select == 0) {
+    if(!search) {
+      var sql = "SELECT * FROM post WHERE category =?";
+      conn.query(sql, 1, function(err, rows, fields) {
+        if(err){
+          console.log(err);
+          res.status(500).send('Internal Server Error');
+        } else {
+          console.log(rows);
+          res.render('page/study', {rows : rows, "form" : "interest", "authenticate": req.session.authenticate});
+        }
       });
     }
-  });
+    else {
+      var sql = "SELECT * FROM post WHERE category =? AND title LIKE ?";
+      conn.query(sql, [1, title_search], (err, rows, fields) => {
+        if(err) {
+          console.log(err);
+          res.status(500).send('Internal Server Error');
+        } else {
+          console.log(rows);
+          res.render('page/study', {rows : rows, "form" : "interest", "authenticate": req.session.authenticate});
+        }
+      });
+    }
+  }
+  else {
+    if(!search) {
+      var sql = "SELECT * FROM post WHERE category =? AND subject =?";
+      conn.query(sql, [1, select], (err, rows, fields) => {
+        if(err){
+          console.log(err);
+          res.status(500).send('Internal Server Error');
+        } else {
+          console.log(rows);
+          res.render('page/study', {rows : rows, "form" : "interest", "authenticate": req.session.authenticate});
+        }
+      });
+    }
+    else {
+      var sql = "SELECT * FROM post WHERE category =? AND subject =? AND title LIKE ?";
+      conn.query(sql, [1, select, title_search], (err, rows, fields) => {
+        if(err) {
+          console.log(err);
+          res.status(500).send('Internal Server Error');
+        } else {
+          console.log(rows);
+          res.render('page/study', {rows : rows, "form" : "interest", "authenticate": req.session.authenticate});
+        }
+      });
+    }
+  }
   
   console.log('--- log end ---');
 })

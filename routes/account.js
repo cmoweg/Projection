@@ -5,6 +5,7 @@ const { smtpTransport, generateRandom } = require('../config/email');
 
 
 
+
 const conn = mysql.createConnection(dbconfig);
 var router = express.Router();
 
