@@ -204,26 +204,26 @@ router.get('/:nav/:form/post/write', function (req, res, next) {
   let nav = req.params.nav;
   let form = req.params.form;
   console.log(nav)
-  let class_info = true;
-  let subject = true;
-  let position = true;
+  let class_info_ = true;
+  let subject_ = true;
+  let position_ = true;
 
   if (nav == "project" && form == "interest") {
-    class_info = false;
+    class_info_ = false;
   }
   else if (nav == "study") {
-    position = false;
+    position_ = false;
 
     if (form == "interest") {
-      class_info = false;
+      class_info_ = false;
     }
   }
   else if (nav == "program") {
     if (form == "tutoring") {
-      subject = false;
+      subject_ = false;
     }
     else if (form == "contest" || form == "creative_semester" || form == "creative_community") {
-      class_info = false;
+      class_info_ = false;
     }
   }
 
@@ -243,21 +243,21 @@ router.post('/:nav/:form/post/:id', function (req, res, next) {
   let position_ = true;
 
   if (nav == "project" && form == "interest") {
-    class_info = false;
+    class_info_ = false;
   }
   else if (nav == "study") {
-    position = false;
+    position_ = false;
 
     if (form == "interest") {
-      class_info = false;
+      class_info_ = false;
     }
   }
   else if (nav == "program") {
     if (form == "tutoring") {
-      subject = false;
+      subject_ = false;
     }
     else if (form == "contest" || form == "creative_semester" || form == "creative_community") {
-      class_info = false;
+      class_info_ = false;
     }
   }
   var category = req.body.category;
