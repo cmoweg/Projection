@@ -2,7 +2,7 @@
     /* https://poiemaweb.com/css3-centering */
     width: 520px;
     height: 640px;
-    margin: 100px auto 0px ;
+    margin: 100px auto 100px ;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,6 +37,9 @@
 .btn_registration{
     background-color: #000538;
     color: white;
+    width: 50%;
+    margin: 0 auto;
+    display: block;
 }
 
 .spliter{
@@ -49,5 +52,23 @@
 #stay_login{
     width: 40px;
     height: 40px;
+    margin-bottom: 20px;
+}
+
+
+.form{
+    width: 100%;
+    display: flex;
+}
+
+.form_validation{
+    width: 20%;
+    margin-left: 20px;
+}
+.form_validation > button{
+    width: 100%;
+    height: 56px;
+    background-color: white;
+    cursor: pointer;
     margin-bottom: 20px;
 }
